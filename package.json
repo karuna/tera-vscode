@@ -2,26 +2,39 @@
     "name": "tera",
     "displayName": "Tera Syntax Highlighting",
     "description": "Tera Template Syntax Highlighting",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "karunamurti",
     "engines": {
         "vscode": "^1.19.0"
     },
-    "categories": ["Languages"],
+    "categories": [
+        "Languages"
+    ],
     "license": "MIT",
-    "keywords": ["boo"],
+    "keywords": [
+        "boo"
+    ],
     "contributes": {
-        "languages": [{
-            "id": "tera",
-            "aliases": ["Tera Template", "tera"],
-            "extensions": ["tera"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "tera",
-            "scopeName": "source.tera",
-            "path": "./syntaxes/tera.json"
-        }]
+        "languages": [
+            {
+                "id": "tera",
+                "aliases": [
+                    "Tera Template",
+                    "tera"
+                ],
+                "extensions": [
+                    "tera"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "tera",
+                "scopeName": "source.tera",
+                "path": "./syntaxes/tera.json"
+            }
+        ]
     },
     "repository": {
         "type": "git",
