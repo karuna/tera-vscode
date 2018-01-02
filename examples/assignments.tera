@@ -1,0 +1,5 @@
+{% set my_var = "hello" %}
+{% set my_var = 1 + 4 %}
+{% set my_var = some_var %}
+{% set my_var = macros::some_macro() %}
+{% set my_var = global_fn() %}

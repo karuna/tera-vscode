@@ -64,22 +64,30 @@
   ],
   "repository": {
     "escaped_char": {
-      "match": "\\\\x[0-9A-F]{2}",
-      "name": "constant.character.escape.hex.tera"
+      "patterns": [
+        {
+          "match": "\\\\x[0-9A-F]{2}",
+          "name": "constant.character.escape.hex.tera"
+        }
+      ]
     },
     "escaped_unicode_char": {
-      "captures": {
-        "1": {
-          "name": "constant.character.escape.unicode.16-bit-hex.tera"
-        },
-        "2": {
-          "name": "constant.character.escape.unicode.32-bit-hex.tera"
-        },
-        "3": {
-          "name": "constant.character.escape.unicode.name.tera"
+      "patterns": [
+        {
+          "captures": {
+            "1": {
+              "name": "constant.character.escape.unicode.16-bit-hex.tera"
+            },
+            "2": {
+              "name": "constant.character.escape.unicode.32-bit-hex.tera"
+            },
+            "3": {
+              "name": "constant.character.escape.unicode.name.tera"
+            }
+          },
+          "match": "(\\\\U[0-9A-Fa-f]{8})|(\\\\u[0-9A-Fa-f]{4})|(\\\\N\\{[a-zA-Z ]+\\})"
         }
-      },
-      "match": "(\\\\U[0-9A-Fa-f]{8})|(\\\\u[0-9A-Fa-f]{4})|(\\\\N\\{[a-zA-Z ]+\\})"
+      ]
     },
     "expression": {
       "patterns": [
@@ -125,7 +133,7 @@
           "match": "(?<=\\{\\%-|\\{\\%)\\s*\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?!\\s*[,=])"
         },
         {
-          "match": "\\b(and|as|else|if|in|import|not|or|recursive|with(out)?\\s+context)\\b",
+          "match": "\\b(and|as|else|if|elif|in|import|not|or|recursive|set|include|extends|with(out)?\\s+context)\\b",
           "name": "keyword.control.tera"
         },
         {
@@ -141,7 +149,7 @@
           "name": "variable.other.tera"
         },
         {
-          "match": "(\\+|\\-|\\*\\*|\\*|//|/|%)",
+          "match": "(\\+|\\-|\\*|/)",
           "name": "keyword.operator.arithmetic.tera"
         },
         {
@@ -213,7 +221,7 @@
           "name": "punctuation.other.tera"
         },
         {
-          "match": "(==|<=|=>|<|>|!=)",
+          "match": "(==|>=|<=|<|>|!=)",
           "name": "keyword.operator.comparison.tera"
         },
         {
@@ -283,42 +291,46 @@
       ]
     },
     "simple_escapes": {
-      "captures": {
-        "1": {
-          "name": "constant.character.escape.newline.tera"
-        },
-        "2": {
-          "name": "constant.character.escape.backlash.tera"
-        },
-        "3": {
-          "name": "constant.character.escape.double-quote.tera"
-        },
-        "4": {
-          "name": "constant.character.escape.single-quote.tera"
-        },
-        "5": {
-          "name": "constant.character.escape.bell.tera"
-        },
-        "6": {
-          "name": "constant.character.escape.backspace.tera"
-        },
-        "7": {
-          "name": "constant.character.escape.formfeed.tera"
-        },
-        "8": {
-          "name": "constant.character.escape.linefeed.tera"
-        },
-        "9": {
-          "name": "constant.character.escape.return.tera"
-        },
-        "10": {
-          "name": "constant.character.escape.tab.tera"
-        },
-        "11": {
-          "name": "constant.character.escape.vertical-tab.tera"
+      "patterns": [
+        {
+          "captures": {
+            "1": {
+              "name": "constant.character.escape.newline.tera"
+            },
+            "2": {
+              "name": "constant.character.escape.backlash.tera"
+            },
+            "3": {
+              "name": "constant.character.escape.double-quote.tera"
+            },
+            "4": {
+              "name": "constant.character.escape.single-quote.tera"
+            },
+            "5": {
+              "name": "constant.character.escape.bell.tera"
+            },
+            "6": {
+              "name": "constant.character.escape.backspace.tera"
+            },
+            "7": {
+              "name": "constant.character.escape.formfeed.tera"
+            },
+            "8": {
+              "name": "constant.character.escape.linefeed.tera"
+            },
+            "9": {
+              "name": "constant.character.escape.return.tera"
+            },
+            "10": {
+              "name": "constant.character.escape.tab.tera"
+            },
+            "11": {
+              "name": "constant.character.escape.vertical-tab.tera"
+            }
+          },
+          "match": "(\\\\\\n)|(\\\\\\\\)|(\\\\\\\")|(\\\\')|(\\\\a)|(\\\\b)|(\\\\f)|(\\\\n)|(\\\\r)|(\\\\t)|(\\\\v)"
         }
-      },
-      "match": "(\\\\\\n)|(\\\\\\\\)|(\\\\\\\")|(\\\\')|(\\\\a)|(\\\\b)|(\\\\f)|(\\\\n)|(\\\\r)|(\\\\t)|(\\\\v)"
+      ]
     },
     "string": {
       "patterns": [

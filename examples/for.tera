@@ -1,0 +1,9 @@
+{% for product in products %}
+  {{loop.index}}. {{product.name}}
+{% endfor %}
+{% for key, value in products %}
+  {{loop.index}}. {{product.name}}
+{% endfor %}
+{% for product in products | reverse %}
+  {{loop.index}}. {{product.name}}
+{% endfor %}

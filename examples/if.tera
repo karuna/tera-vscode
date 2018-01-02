@@ -1,0 +1,12 @@
+{% if price < 10 or always_show %}
+   Price is {{ price }}.
+{% elif price > 1000 and not rich %}
+   That's expensive!
+{% else %}
+    N/A
+{% endif %}
+{% if my_var %}
+    {{ my_var }}
+{% else %}
+    Sorry, my_var isn't defined.
+{% endif %}
