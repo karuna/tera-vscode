@@ -60,6 +60,9 @@
           "include": "#expression"
         }
       ]
+    },
+    {
+      "include": "text.html.basic"
     }
   ],
   "repository": {
