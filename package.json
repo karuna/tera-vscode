@@ -1,53 +1,78 @@
 {
-    "name": "tera",
-    "displayName": "Tera Syntax Highlighting",
-    "description": "Tera Template Syntax Highlighting",
-    "version": "0.0.2",
-    "publisher": "karunamurti",
-    "engines": {
-        "vscode": "^1.19.0"
+  "name": "tera",
+  "displayName": "Tera",
+  "description": "A powerful, easy-to-use template language based on Rust, inspired by Jinja2 and Django Templates.",
+  "version": "0.0.2",
+  "publisher": "karunamurti",
+  "engines": {
+    "vscode": "^1.19.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Formatters"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "tera",
+    "rust",
+    "zola"
+  ],
+  "main": "./lib/index.js",
+  "contributes": {
+    "configurationDefaults": {
+      "[tera]": {
+        "editor.defaultFormatter": "karunamurti.tera"
+      }
     },
-    "categories": [
-        "Languages"
-    ],
-    "license": "MIT",
-    "keywords": [
-        "boo"
-    ],
-    "contributes": {
-        "languages": [
-            {
-                "id": "tera",
-                "aliases": [
-                    "Tera Template",
-                    "tera"
-                ],
-                "extensions": [
-                    "tera"
-                ],
-                "configuration": "./language-configuration.json"
-            }
+    "languages": [
+      {
+        "id": "tera",
+        "aliases": [
+          "Tera Template",
+          "tera"
         ],
-        "grammars": [
-            {
-                "language": "tera",
-                "scopeName": "source.tera",
-                "path": "./syntaxes/tera.json"
-            }
-        ]
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/karuna/tera-vscode.git"
-    },
-    "galleryBanner": {
-        "color": "#888888",
-        "theme": "dark"
-    },
-    "homepage": "https://github.com/karuna/tera-vscode",
-    "bugs": {
-        "url": "https://github.com/karuna/tera-vscode/issues",
-        "email": "karuna.murti@gmail.com"
-    },
-    "icon": "images/logo.png"
+        "extensions": [
+          ".tera"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "tera",
+        "scopeName": "source.tera",
+        "path": "./syntaxes/tera.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karuna/tera-vscode.git"
+  },
+  "galleryBanner": {
+    "color": "#888888",
+    "theme": "dark"
+  },
+  "homepage": "https://github.com/karuna/tera-vscode",
+  "bugs": {
+    "url": "https://github.com/karuna/tera-vscode/issues",
+    "email": "karuna.murti@gmail.com"
+  },
+  "icon": "images/logo.png",
+  "activationEvents": [
+    "onLanguage:tera"
+  ],
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "tsc",
+    "test": "npm run build && jest"
+  },
+  "dependencies": {
+    "prettydiff": "^101.2.6"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2",
+    "typescript": "^4.0.2",
+    "vscode": "^1.1.37"
+  }
 }
