@@ -1,0 +1,95 @@
+{
+  "Variable": {
+    "prefix": "xx",
+    "body": "{{ $1 }}",
+    "description": "Renders a variable"
+  },
+  "Inline Block": {
+    "prefix": "inblock",
+    "body": "{% block $1 %} $2 {% endblock $3 %}",
+    "description": "A block of content inline on a single line"
+  },
+  "Block": {
+    "prefix": "block",
+    "body": [
+      "{% block $1 %}",
+      " $2",
+      "{% endblock $3 %}"
+    ],
+    "description": "A block of content"
+  },
+  "If": {
+    "prefix": "if",
+    "body": [
+      "{% if $1 %}",
+      " $2",
+      "{% endif %}"
+    ],
+    "description": "If conditional statement"
+  },
+  "Inline If": {
+    "prefix": "ifi",
+    "body": "{% if $1 %} $2 {% endif %}",
+    "description": "If conditional statement on a single line"
+  },
+  "If Else": {
+    "prefix": "ifelse",
+    "body": [
+      "{% if $1 %}",
+      " $2",
+      "{% elif $3 %}",
+      " $4",
+      "{% endif %}"
+    ],
+    "description": "else if conditional statement"
+  },
+  "Else": {
+    "prefix": "else",
+    "body": [
+      "{% else %}",
+      " $1"
+    ],
+    "description": "Else conditional statement"
+  },
+  "Filter": {
+    "prefix": "filter",
+    "body": [
+      "{% filter $1 %}",
+      " $2",
+      "{% endfilter %}"
+    ]
+  },
+  "For Loop": {
+    "prefix": "forloop",
+    "body": [
+      "{% for $1 in $2 %}",
+      " $3",
+      "{% endfor %}"
+    ],
+    "description": "Loop over items in an array"
+  },
+  "Extend": {
+    "prefix": "extend",
+    "body": "{% extends \"$1\" %}",
+    "description": "Inherits a template and all of its content"
+  },
+  "Include": {
+    "prefix": "include",
+    "body": "{% include \"$1\" %}",
+    "description": "Render a template using its current context"
+  },
+  "Import": {
+    "prefix": "import",
+    "body": "{% import \"$1\" as $2 %}",
+    "description": "Import a file containing a micro"
+  },
+  "Macro": {
+    "prefix": "macro",
+    "body": [
+      "{% macro $1 %}",
+      " $2",
+      "{% endmacro $3 %}"
+    ],
+    "description": "A function or a component that returns some text"
+  }
+}
