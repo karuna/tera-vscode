@@ -9,3 +9,5 @@
 ## [0.0.3] - 2020-09-12
 - Added formatter - by Drew Powers <drew@pow.rs>
 
+## [0.0.4] - 2020-10-04
+- Added snippets - by Karam Fahad
