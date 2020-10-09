@@ -79,6 +79,6 @@
 	"devDependencies": {
 		"jest": "^26.4.2",
 		"typescript": "^4.0.2",
-		"vscode": "^1.1.37"
+		"@types/vscode": "^1.50.0"
 	}
 }
