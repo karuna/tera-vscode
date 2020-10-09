@@ -5,7 +5,7 @@
 	"version": "0.0.4",
 	"publisher": "karunamurti",
 	"engines": {
-		"vscode": "^1.19.0"
+		"vscode": "^1.40.0"
 	},
 	"categories": [
 		"Programming Languages",
@@ -79,6 +79,6 @@
 	"devDependencies": {
 		"jest": "^26.4.2",
 		"typescript": "^4.0.2",
-		"@types/vscode": "^1.50.0"
+		"@types/vscode": "^1.40.0"
 	}
 }

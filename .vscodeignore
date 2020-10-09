@@ -3,3 +3,7 @@
 .gitignore
 tests/**
 vsc-extension-quickstart.md
+node_modules
+tsconfig.json
+src/
+webpack.config.js
