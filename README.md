@@ -24,7 +24,29 @@ By default, only `.tera` files will be formatted. To add `.html` files (used for
   },
 ```
 
+## Snippets
+
+| Snippet | Description                        |
+| ------- | ---------------------------------- |
+| xx      | `{{ }}`                            |
+| block   | `{% block %} {% endblock %}`       |
+| inblock | Same as above but on a single line |
+| if      | `{% if %} {% endif %}`             |
+| ifi     | Same as above but on a single line |
+| ifelse  | `{% if %} {% elif %} {% endif %}`  |
+| else    | `{% else %}`                       |
+| filter  | `{% filter %} {% endfilter %}`     |
+| forloop | `{% for in %} {% endfor %}`        |
+| extend  | `{% extends "" %}`                 |
+| include | `{% include "" %}`                 |
+| import  | `{% import "" %}`                  |
+| macro   | `{% macro %} {% endmacro %}`       |
+
 ## Release Notes
+
+### 0.0.4
+
+Added snippets support.
 
 ### 0.0.3
 
