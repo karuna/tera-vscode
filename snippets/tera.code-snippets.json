@@ -6,7 +6,7 @@
   },
   "Inline Block": {
     "prefix": "inblock",
-    "body": "{% block $1 %} $2 {% endblock $3 %}",
+    "body": "{% block $1 %} $2 {% endblock $1 %}",
     "description": "A block of content inline on a single line"
   },
   "Block": {
@@ -14,7 +14,7 @@
     "body": [
       "{% block $1 %}",
       " $2",
-      "{% endblock $3 %}"
+      "{% endblock $1 %}"
     ],
     "description": "A block of content"
   },
