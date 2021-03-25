@@ -1,24 +1,24 @@
 {% extends "base_layout" %}
 {% block content %}
-    <section class="hero">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    What is Hangar?
-                </h1>
-                <h2 class="subtitle">
-                    Hangar is an opionated web framework using Rust programming language. Built using
-                    <a href="https://rocket.rs/">Rocket</a>,
-                    <a href="https://diesel.rs/">Diesel</a>, and other Rust libraries.
-                </h2>
-            </div>
-        </div>
-    </section>
-    <h1 class="title">Quickstart</h1>
-    <p>
-        If you don't have
-        <a href="https://www.rust-lang.org/">Rust programming language</a>
-        installed on your system:
-    </p>
-    <code>curl https://sh.rustup.rs -sSf | sh</code>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          What is Hangar?
+        </h1>
+        <h2 class="subtitle">
+          Hangar is an opionated web framework using Rust programming language. Built using
+          <a href="https://rocket.rs/">Rocket</a>,
+          <a href="https://diesel.rs/">Diesel</a>, and other Rust libraries.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <h1 class="title">Quickstart</h1>
+  <p>
+    If you don't have
+    <a href="https://www.rust-lang.org/">Rust programming language</a>
+    installed on your system:
+  </p>
+  <code>curl https://sh.rustup.rs -sSf | sh</code>
 {% endblock content %}

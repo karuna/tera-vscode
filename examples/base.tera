@@ -2,13 +2,13 @@
 <h1>Hello</h1>
 
 {% if my_var %}
-    {{ my_var }}
+  {{ my_var }}
 {% else %}
-    Sorry, my_var isn't defined.
+  Sorry, my_var isn't defined.
 {% endif %}
 
 {% if not show_all %}
-    See more
+  See more
 {% endif %}
 {{ "{{ hey }}" }}
 

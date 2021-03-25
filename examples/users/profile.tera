@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
-
 {% block content %}
-    Hello {{ username }}
-    {{ bio }}
+Hello {{ username }}
+{{ bio }}
 {% endblock content %}
