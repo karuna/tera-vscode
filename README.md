@@ -34,17 +34,22 @@ Visual Studio Code. Version 1.19.1 as this extension made.
 
 ## Release Notes
 
+### 0.0.6
+
+- Tera template file is replaced with HTML for syntax highlighting
+- Snippets work in HTML
+
 ### 0.0.4
 
-Added snippets support.
+- Added snippets support.
 
 ### 0.0.3
 
-Added formatting support.
+- Added formatting support.
 
 ### 0.0.1
 
-First release. May or may not be maintained.
+- First release. May or may not be maintained.
 
 ## For more information
 
