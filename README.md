@@ -14,16 +14,6 @@ Syntax highlighting for Tera Template.
 
 Visual Studio Code. Version 1.19.1 as this extension made.
 
-## Extension Settings
-
-By default, only `.tera` files will be formatted. To add `.html` files (used for [Zola][zola]), add the following to VS Code’s `settings.json`:
-
-```json
-  "files.associations": {
-    "*.html": "tera"
-  },
-```
-
 ## Snippets
 
 | Snippet | Description                        |
@@ -58,9 +48,7 @@ First release. May or may not be maintained.
 
 ## For more information
 
-- [Tera Template][tera]
+- [Tera Template](https://tera.netlify.com/)
+- [Zola](https://github.com/getzola/zola)
 
 **Enjoy!**
-
-[tera]: https://tera.netlify.com/
-[zola]: https://github.com/getzola/zola
