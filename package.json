@@ -68,6 +68,6 @@
     "prettydiff": "^101.2.6"
   },
   "devDependencies": {
-    "@types/vscode": "^1.40.0"
+    "@types/vscode": "^1.57.0"
   }
 }
