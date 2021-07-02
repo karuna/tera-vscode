@@ -27,7 +27,8 @@
         ],
         "extensions": [
           ".html",
-          ".htm"
+          ".htm",
+          ".tera"
         ],
         "configuration": "./language-configuration.json"
       }
