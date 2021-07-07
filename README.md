@@ -34,6 +34,10 @@ Visual Studio Code. Version 1.19.1 as this extension made.
 
 ## Release Notes
 
+### 0.0.7
+- Reregister the `.tera` extension
+- Removed the unused dependencies
+
 ### 0.0.6
 
 - Tera template file is replaced with HTML for syntax highlighting
