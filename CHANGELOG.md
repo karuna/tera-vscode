@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.0.7] - 2021-07-07
+
+- Reregister the .tera extension
+- Removed the unused dependencies
+
 ## [0.0.6] - 2021-03-25
 
 - Tera template file is replaced with HTML for syntax highlighting
