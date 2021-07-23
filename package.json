@@ -2,7 +2,7 @@
   "name": "tera",
   "displayName": "Tera",
   "description": "A powerful, easy-to-use template language based on Rust, inspired by Jinja2 and Django Templates.",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "publisher": "karunamurti",
   "engines": {
     "vscode": "^1.40.0"
