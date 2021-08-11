@@ -1,4 +1,13 @@
-# Change Log
+# Changelog
+
+## [0.0.9] - 20201-07-23
+
+- Revert 0.0.8 as it broke down Markdown files
+
+## [0.0.8] - 20201-07-23
+
+- Snippets support in Markdown files
+- Syntax highlighting of tera templates in Markdown files
 
 ## [0.0.7] - 2021-07-07
 
