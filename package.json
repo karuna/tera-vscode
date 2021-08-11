@@ -2,7 +2,7 @@
   "name": "tera",
   "displayName": "Tera",
   "description": "A powerful, easy-to-use template language based on Rust, inspired by Jinja2 and Django Templates.",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "publisher": "karunamurti",
   "engines": {
     "vscode": "^1.40.0"
@@ -31,16 +31,6 @@
           ".tera"
         ],
         "configuration": "./language-configuration.json"
-      },
-      {
-        "id": "markdown",
-        "aliases": [
-          "Markdown"
-        ],
-        "extensions": [
-          ".md"
-        ],
-        "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
@@ -48,20 +38,11 @@
         "language": "html",
         "scopeName": "source.tera",
         "path": "./syntaxes/tera.json"
-      },
-      {
-        "language": "markdown",
-        "scopeName": "source.tera",
-        "path": "./syntaxes/tera.json"
       }
     ],
     "snippets": [
       {
         "language": "html",
-        "path": "./snippets/tera.code-snippets.json"
-      },
-      {
-        "language": "markdown",
         "path": "./snippets/tera.code-snippets.json"
       }
     ]
