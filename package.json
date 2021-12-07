@@ -2,7 +2,7 @@
   "name": "tera",
   "displayName": "Tera",
   "description": "A powerful, easy-to-use template language based on Rust, inspired by Jinja2 and Django Templates.",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "publisher": "karunamurti",
   "engines": {
     "vscode": "^1.40.0"
@@ -13,39 +13,60 @@
   "license": "MIT",
   "keywords": [
     "tera",
-    "rust",
-    "zola"
+    "rust"
   ],
   "main": "./lib/index.js",
   "contributes": {
     "languages": [
       {
-        "id": "html",
+        "id": "tera-html",
         "aliases": [
-          "HTML",
-          "HTML (Tera)"
+          "Tera HTML",
+          "tera-html"
         ],
         "extensions": [
-          ".html",
-          ".htm",
-          ".tera"
+          ".tera",
+          ".html.tera"
         ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera",
+        "aliases": [
+          "Tera Raw",
+          "tera-raw"
+        ],
+        "extensions": [],
         "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
       {
-        "language": "html",
+        "language": "tera-html",
+        "scopeName": "text.html.tera",
+        "path": "./syntaxes/tera-html.json"
+      },
+      {
+        "language": "tera",
         "scopeName": "source.tera",
         "path": "./syntaxes/tera.json"
       }
     ],
     "snippets": [
       {
-        "language": "html",
+        "language": "tera-html",
         "path": "./snippets/tera.code-snippets.json"
       }
-    ]
+    ],
+    "configurationDefaults": {
+      "[tera-html]": {
+        "editor.quickSuggestions": {
+          "other": true,
+          "comments": true,
+          "strings": true
+        }
+      }
+    }
   },
   "repository": {
     "type": "git",

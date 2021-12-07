@@ -34,6 +34,15 @@ Visual Studio Code. Version 1.19.1 as this extension made.
 
 ## Release Notes
 
+## 0.0.9 - 20201-07-23
+
+- Revert 0.0.8 as it broke down Markdown files
+
+## 0.0.8 - 20201-07-23
+
+- Snippets support in Markdown files
+- Syntax highlighting of tera templates in Markdown files
+
 ### 0.0.7
 - Reregister the `.tera` extension
 - Removed the unused dependencies

@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+  Hello {{ username }}
+  {{ bio }}
+{% endblock content %}
