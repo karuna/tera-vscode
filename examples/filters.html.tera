@@ -1,3 +1,5 @@
 {% filter upper %}
   Hello
 {% endfilter %}
+<div>
+      </div>
