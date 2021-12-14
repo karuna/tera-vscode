@@ -10,3 +10,7 @@
 {% else %}
   Sorry, my_var isn't defined.
 {% endif %}
+<div>
+  <span></span>
+     <span></span>
+</div>

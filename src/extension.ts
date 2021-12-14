@@ -8,7 +8,7 @@ import { commands, CompletionList, ExtensionContext, Uri, workspace, languages }
 import { getLanguageService } from 'vscode-html-languageservice';
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from 'vscode-languageclient';
 import { getCSSVirtualContent, isInsideStyleRegion } from './embeddedSupport';
-import TeraBeautifierProvider from './teraBeautifierProvider';
+import { TerraPrettierFormatter } from './teraPrettier';
 
 let client: LanguageClient;
 
@@ -16,7 +16,7 @@ const htmlLanguageService = getLanguageService();
 
 export function activate(context: ExtensionContext) {
 	// The server is implemented in node
-	const serverModule = context.asAbsolutePath(path.join('server', 'out', 'server.js'));
+	const serverModule = context.asAbsolutePath(path.join('out', 'server.js'));
 	// The debug options for the server
 	// --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging
 	const debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
@@ -42,19 +42,28 @@ export function activate(context: ExtensionContext) {
 		}
 	});
 
-	context.subscriptions.push(languages.registerDocumentFormattingEditProvider('html.tera', new TeraBeautifierProvider()));
+	context.subscriptions.push(
+		languages.registerDocumentFormattingEditProvider('html.tera', new TerraPrettierFormatter())
+	);
 
 	const clientOptions: LanguageClientOptions = {
 		documentSelector: [{ scheme: 'file', language: 'tera-html' }],
 		middleware: {
 			provideCompletionItem: async (document, position, context, token, next) => {
 				// If not in `<style>`, do not perform request forwarding
-				if (!isInsideStyleRegion(htmlLanguageService, document.getText(), document.offsetAt(position))) {
+				if (!isInsideStyleRegion(
+					htmlLanguageService,
+					document.getText(),
+					document.offsetAt(position))
+				) {
 					return await next(document, position, context, token);
 				}
 
 				const originalUri = document.uri.toString();
-				virtualDocumentContents.set(originalUri, getCSSVirtualContent(htmlLanguageService, document.getText()));
+				virtualDocumentContents.set(
+					originalUri,
+					getCSSVirtualContent(htmlLanguageService, document.getText())
+				);
 
 				const vdocUriString = `embedded-content://css/${encodeURIComponent(
 					originalUri
