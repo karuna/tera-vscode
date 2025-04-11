@@ -28,11 +28,11 @@
       "begin": "{{-?",
       "captures": [
         {
-          "name": "entity.other.tera.delimiter.variable"
+          "name": "variable.entity.other.tera.delimiter"
         }
       ],
       "end": "-?}}",
-      "name": "meta.scope.tera.variable",
+      "name": "variable.meta.scope.tera",
       "patterns": [
         {
           "include": "#expression"
@@ -149,7 +149,7 @@
           "name": "variable.other.tera"
         },
         {
-          "match": "(\\+|\\-|\\*\\*|\\*|\/\/|\/|%)",
+          "match": "(\\+|\\-|\\*\\*|\\*|//|/|%)",
           "name": "keyword.operator.arithmetic.tera"
         },
         {
