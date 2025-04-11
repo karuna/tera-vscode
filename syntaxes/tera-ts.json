@@ -1,0 +1,13 @@
+{
+  "name": "tera-ts",
+  "scopeName": "source.ts.tera",
+  "comment": "Tera TypeScript Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.ts"
+    }
+  ]
+}

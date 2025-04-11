@@ -1,0 +1,16 @@
+{
+  "name": "tera-md",
+  "scopeName": "text.html.markdown.tera",
+  "comment": "Tera Markdown Templates",
+  "firstLineMatch": "^{% extends [\"'][^\"']+[\"'] %}",
+  "foldingStartMarker": "(<(?i:(head|table|tr|div|style|script|ul|ol|form|dl))\\b.*?>|{%\\s*(block|filter|for|if|macro|raw))",
+  "foldingStopMarker": "(</(?i:(head|table|tr|div|style|script|ul|ol|form|dl))\\b.*?>|{%\\s*(endblock|endfilter|endfor|endif|endmacro|endraw)\\s*%})",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "text.html.markdown"
+    }
+  ]
+}

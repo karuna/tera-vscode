@@ -1,0 +1,13 @@
+{
+  "name": "tera-systemd",
+  "scopeName": "source.systemd.tera",
+  "comment": "Tera Systemd Unit File Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.systemdUnitFile"
+    }
+  ]
+}

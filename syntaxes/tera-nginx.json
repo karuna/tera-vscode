@@ -1,0 +1,13 @@
+{
+  "name": "tera-nginx",
+  "scopeName": "source.nginx.tera",
+  "comment": "Tera NGINX Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.nginx"
+    }
+  ]
+}

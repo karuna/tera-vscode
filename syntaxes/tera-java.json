@@ -1,0 +1,13 @@
+{
+  "name": "tera-java",
+  "scopeName": "source.java.tera",
+  "comment": "Tera Java Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.java"
+    }
+  ]
+}

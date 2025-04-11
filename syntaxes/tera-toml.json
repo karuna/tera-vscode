@@ -1,0 +1,13 @@
+{
+  "name": "tera-toml",
+  "scopeName": "text.toml.tera",
+  "comment": "Tera TOML Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.toml"
+    }
+  ]
+}

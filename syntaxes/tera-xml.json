@@ -1,0 +1,13 @@
+{
+  "name": "tera-xml",
+  "scopeName": "text.xml.tera",
+  "comment": "Tera XML Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "text.xml"
+    }
+  ]
+}

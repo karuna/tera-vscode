@@ -1,0 +1,16 @@
+{
+  "name": "tera-cisco",
+  "scopeName": "source.cisco.tera",
+  "comment": "Tera Cisco Config Templates",
+  "fileTypes": [
+    "cisco.j2"
+  ],
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.cisco"
+    }
+  ]
+}

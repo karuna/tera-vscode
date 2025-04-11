@@ -1,0 +1,21 @@
+{
+  "name": "tera-yaml",
+  "scopeName": "text.yaml.tera",
+  "comment": "Tera YAML Templates",
+  "fileTypes": [
+    "yml.j2",
+    "yaml.j2",
+    "yml.tera",
+    "yaml.tera",
+    "sls"
+  ],
+  "firstLineMatch": "^{% extends [\"'][^\"']+[\"'] %}",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.yaml"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "tera-cpp",
+  "scopeName": "source.cpp.tera",
+  "comment": "Tera C++ Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.cpp"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "tera-dockerfile",
+  "scopeName": "source.dockerfile.tera",
+  "comment": "Tera Dockerfile Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.dockerfile"
+    }
+  ]
+}

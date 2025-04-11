@@ -1,0 +1,13 @@
+{
+  "name": "tera-terraform",
+  "scopeName": "source.terraform.tera",
+  "comment": "Tera terraform Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.terraform"
+    }
+  ]
+}

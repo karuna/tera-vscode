@@ -1,0 +1,13 @@
+{
+  "name": "tera-php",
+  "scopeName": "source.php.tera",
+  "comment": "Tera PHP Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.php"
+    }
+  ]
+}

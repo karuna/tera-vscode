@@ -1,0 +1,13 @@
+{
+  "name": "tera-properties",
+  "scopeName": "source.ini.tera",
+  "comment": "Tera properties/ini/conf Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.ini"
+    }
+  ]
+}

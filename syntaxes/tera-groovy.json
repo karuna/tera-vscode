@@ -1,0 +1,13 @@
+{
+  "name": "tera-groovy",
+  "scopeName": "source.groovy.tera",
+  "comment": "Tera Groovy Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.groovy"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "tera-ruby",
+  "scopeName": "text.ruby.tera",
+  "comment": "Tera Ruby Templates",
+  "firstLineMatch": "^{% extends [\"'][^\"']+[\"'] %}",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.ruby"
+    }
+  ]
+}

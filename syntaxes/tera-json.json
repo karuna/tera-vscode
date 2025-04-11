@@ -1,0 +1,13 @@
+{
+  "name": "tera-json",
+  "scopeName": "text.json.tera",
+  "comment": "Tera JSON Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.json"
+    }
+  ]
+}

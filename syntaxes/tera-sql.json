@@ -1,0 +1,13 @@
+{
+  "name": "tera-sql",
+  "scopeName": "source.sql.tera",
+  "comment": "Tera SQL Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.sql"
+    }
+  ]
+}

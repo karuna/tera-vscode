@@ -1,0 +1,13 @@
+{
+  "name": "tera-rust",
+  "scopeName": "source.rust.tera",
+  "comment": "Tera Rust Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.rust"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "tera-css",
+  "scopeName": "text.css.tera",
+  "comment": "Tera CSS Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.css"
+    }
+  ]
+}

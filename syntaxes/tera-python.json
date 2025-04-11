@@ -1,0 +1,13 @@
+{
+  "name": "tera-python",
+  "scopeName": "source.python.tera",
+  "comment": "Tera Python Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.python"
+    }
+  ]
+}

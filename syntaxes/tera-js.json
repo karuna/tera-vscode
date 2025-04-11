@@ -1,0 +1,13 @@
+{
+  "name": "tera-js",
+  "scopeName": "source.js.tera",
+  "comment": "Tera JavaScript Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.js"
+    }
+  ]
+}

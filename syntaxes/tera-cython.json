@@ -1,0 +1,13 @@
+{
+  "name": "tera-cython",
+  "scopeName": "source.cython.tera",
+  "comment": "Tera Cython Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.cython"
+    }
+  ]
+}

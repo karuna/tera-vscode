@@ -1,0 +1,13 @@
+{
+  "name": "tera-shell",
+  "scopeName": "source.shell.tera",
+  "comment": "Tera Shell Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.shell"
+    }
+  ]
+}

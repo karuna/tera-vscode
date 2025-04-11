@@ -1,0 +1,13 @@
+{
+  "name": "tera-lua",
+  "scopeName": "text.lua.tera",
+  "comment": "Tera Lua Templates",
+  "patterns": [
+    {
+      "include": "source.tera"
+    },
+    {
+      "include": "source.lua"
+    }
+  ]
+}
