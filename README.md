@@ -66,7 +66,7 @@ Visual Studio Code. Version 1.19.1 as this extension made.
 
 ## For more information
 
-- [Tera Template](https://tera.netlify.com/)
+- [Tera Template](https://keats.github.io/tera/)
 - [Zola](https://github.com/getzola/zola)
 
 **Enjoy!**
