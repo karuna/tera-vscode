@@ -1,22 +1,36 @@
 {
   "name": "tera",
   "displayName": "Tera",
-  "description": "A powerful, easy-to-use template language based on Rust, inspired by Jinja2 and Django Templates.",
+  "description": "A powerful, easy-to-use template language based on Rust, inspired by tera2 and Django Templates.",
   "version": "0.1.0",
   "publisher": "karunamurti",
+  "author": "Karuna Murti",
   "engines": {
     "vscode": "^1.48.0"
   },
+  "license": "MIT",
+  "icon": "images/logo.png",
   "categories": [
     "Programming Languages",
     "Formatters"
   ],
-  "license": "MIT",
   "keywords": [
     "tera",
     "rust"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karuna/tera-vscode.git"
+  },
   "main": "./out/main.js",
+  "scripts": {
+    "vscode:prepublish": "npm run esbuild-server -- --minify && npm run esbuild-client -- --minify",
+    "esbuild-server": "esbuild ./src/server.ts --bundle --outfile=out/server.js --external:vscode --format=cjs --platform=node",
+    "esbuild-client": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-client -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    "lint": "eslint ./serc --ext .ts,.tsx"
+  },
   "contributes": {
     "languages": [
       {
@@ -39,6 +53,358 @@
         ],
         "extensions": [],
         "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-xml",
+        "aliases": [
+          "Tera XML",
+          "tera-xml"
+        ],
+        "extensions": [
+          ".xml.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-css",
+        "aliases": [
+          "Tera CSS",
+          "tera-css"
+        ],
+        "extensions": [
+          ".css.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-json",
+        "aliases": [
+          "Tera JSON",
+          "tera-json"
+        ],
+        "extensions": [
+          ".json.tera",
+          ".code-workspace.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-md",
+        "aliases": [
+          "Tera Markdown",
+          "tera-md"
+        ],
+        "extensions": [
+          ".md.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-py",
+        "aliases": [
+          "Tera Python",
+          "tera-py"
+        ],
+        "extensions": [
+          "py.tera",
+          "pyi.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-cy",
+        "aliases": [
+          "Tera Cython",
+          "tera-cy"
+        ],
+        "extensions": [
+          "pyx.tera",
+          "pxd.tera",
+          "pxi.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-rb",
+        "aliases": [
+          "Tera Ruby",
+          "tera-rb"
+        ],
+        "extensions": [
+          "rb.tera",
+          "rbw.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-js",
+        "aliases": [
+          "Tera JavaScript",
+          "Tera JS",
+          "tera-js"
+        ],
+        "extensions": [
+          "js.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-ts",
+        "aliases": [
+          "Tera TypeScript",
+          "Tera TS",
+          "tera-ts"
+        ],
+        "extensions": [
+          "ts.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-yaml",
+        "aliases": [
+          "Tera YAML",
+          "tera-yaml"
+        ],
+        "extensions": [
+          ".yml.tera",
+          ".yaml.tera",
+          ".sls"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-toml",
+        "aliases": [
+          "Tera TOML",
+          "tera-toml"
+        ],
+        "extensions": [
+          ".toml.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-latex",
+        "aliases": [
+          "Tera LaTeX",
+          "tera-latex"
+        ],
+        "extensions": [
+          ".latex.tera",
+          ".tex.tera"
+        ],
+        "configuration": "./language-configuration-latex.json"
+      },
+      {
+        "id": "tera-lua",
+        "aliases": [
+          "Tera Lua",
+          "tera-lua"
+        ],
+        "extensions": [
+          ".lua.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-properties",
+        "aliases": [
+          "Tera Properties/ini/Conf",
+          "tera-properties",
+          "tera-ini",
+          "tera-conf"
+        ],
+        "extensions": [
+          ".properties.tera",
+          ".cfg.tera",
+          ".conf.tera",
+          ".desktop.tera",
+          ".directory.tera",
+          ".ini.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-shell",
+        "aliases": [
+          "Tera Shell Script",
+          "tera-shellscript",
+          "tera-shell",
+          "tera-sh",
+          "tera-bash"
+        ],
+        "extensions": [
+          ".sh.tera",
+          ".bash.tera",
+          ".bashrc.tera",
+          ".bash_aliases.tera",
+          ".bash_profile.tera",
+          ".bash_login.tera",
+          ".ebuild.tera",
+          ".install.tera",
+          ".profile.tera",
+          ".bash_logout.tera",
+          ".zsh.tera",
+          ".zshrc.tera",
+          ".zprofile.tera",
+          ".zlogin.tera",
+          ".zlogout.tera",
+          ".zshenv.tera",
+          ".zsh-theme.tera",
+          ".ksh.tera",
+          ".env.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-dockerfile",
+        "aliases": [
+          "Tera Dockerfile",
+          "tera-dockerfile"
+        ],
+        "extensions": [
+          ".dockerfile.tera"
+        ],
+        "filenames": [
+          "Dockerfile.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-sql",
+        "aliases": [
+          "Tera SQL",
+          "tera-sql"
+        ],
+        "extensions": [
+          ".sql.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-terraform",
+        "aliases": [
+          "Tera Terraform",
+          "tera-terraform",
+          "tera-HCL",
+          "tera-hcl",
+          "tera-Hashicorp",
+          "tera-hashicorp"
+        ],
+        "extensions": [
+          ".tf.tera",
+          ".tfvars.tera",
+          ".hcl.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-nginx",
+        "aliases": [
+          "Tera Nginx",
+          "tera-nginx"
+        ],
+        "extensions": [
+          ".conf.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-groovy",
+        "aliases": [
+          "Tera Groovy",
+          "tera-groovy"
+        ],
+        "extensions": [
+          ".groovy.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-systemd",
+        "aliases": [
+          "Tera Systemd Unit File",
+          "tera-systemd"
+        ],
+        "extensions": [
+          ".link.tera",
+          ".netdev.tera",
+          ".network.tera",
+          ".service.tera",
+          ".socket.tera",
+          ".device.tera",
+          ".mount.tera",
+          ".automount.tera",
+          ".swap.tera",
+          ".target.tera",
+          ".path.tera",
+          ".timer.tera",
+          ".snapshot.tera",
+          ".slice.tera",
+          ".scope.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-cpp",
+        "aliases": [
+          "Tera C++",
+          "tera-cpp"
+        ],
+        "extensions": [
+          ".c.tera",
+          ".cpp.tera",
+          ".h.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-cisco",
+        "aliases": [
+          "Tera Cisco Config"
+        ],
+        "extensions": [
+          ".ios.tera",
+          ".cisco.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-java",
+        "aliases": [
+          "Tera Java"
+        ],
+        "extensions": [
+          ".java.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-php",
+        "aliases": [
+          "Tera PHP"
+        ],
+        "extensions": [
+          ".php.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "tera-rust",
+        "aliases": [
+          "Tera Rust"
+        ],
+        "extensions": [
+          ".rs.tera"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "htmlLanguageParticipants": [
+      {
+        "languageId": "tera-html",
+        "autoInsert": true
       }
     ],
     "grammars": [
@@ -51,12 +417,226 @@
         "language": "tera",
         "scopeName": "source.tera",
         "path": "./syntaxes/tera.json"
+      },
+      {
+        "language": "tera-xml",
+        "scopeName": "text.xml.tera",
+        "path": "./syntaxes/tera-xml.json"
+      },
+      {
+        "language": "tera-css",
+        "scopeName": "text.css.tera",
+        "path": "./syntaxes/tera-css.json"
+      },
+      {
+        "language": "tera-json",
+        "scopeName": "text.json.tera",
+        "path": "./syntaxes/tera-json.json"
+      },
+      {
+        "language": "tera-md",
+        "scopeName": "text.html.markdown.tera",
+        "path": "./syntaxes/tera-md.json"
+      },
+      {
+        "language": "tera-py",
+        "scopeName": "source.python.tera",
+        "path": "./syntaxes/tera-python.json"
+      },
+      {
+        "language": "tera-cy",
+        "scopeName": "source.cython.tera",
+        "path": "./syntaxes/tera-cython.json"
+      },
+      {
+        "language": "tera-rb",
+        "scopeName": "text.ruby.tera",
+        "path": "./syntaxes/tera-ruby.json"
+      },
+      {
+        "language": "tera-js",
+        "scopeName": "source.js.tera",
+        "path": "./syntaxes/tera-js.json"
+      },
+      {
+        "language": "tera-ts",
+        "scopeName": "source.ts.tera",
+        "path": "./syntaxes/tera-ts.json"
+      },
+      {
+        "language": "tera-yaml",
+        "scopeName": "text.yaml.tera",
+        "path": "./syntaxes/tera-yaml.json"
+      },
+      {
+        "language": "tera-toml",
+        "scopeName": "text.toml.tera",
+        "path": "./syntaxes/tera-toml.json"
+      },
+      {
+        "language": "tera-latex",
+        "scopeName": "text.latex.tera",
+        "path": "./syntaxes/tera-latex.json"
+      },
+      {
+        "language": "tera-lua",
+        "scopeName": "text.lua.tera",
+        "path": "./syntaxes/tera-lua.json"
+      },
+      {
+        "language": "tera-properties",
+        "scopeName": "source.ini.tera",
+        "path": "./syntaxes/tera-properties.json"
+      },
+      {
+        "language": "tera-shell",
+        "scopeName": "source.shell.tera",
+        "path": "./syntaxes/tera-shell.json"
+      },
+      {
+        "language": "tera-dockerfile",
+        "scopeName": "source.dockerfile.tera",
+        "path": "./syntaxes/tera-dockerfile.json"
+      },
+      {
+        "language": "tera-sql",
+        "scopeName": "source.sql.tera",
+        "path": "./syntaxes/tera-sql.json"
+      },
+      {
+        "language": "tera-groovy",
+        "scopeName": "source.groovy.tera",
+        "path": "./syntaxes/tera-groovy.json"
+      },
+      {
+        "language": "tera-terraform",
+        "scopeName": "source.terraform.tera",
+        "path": "./syntaxes/tera-terraform.json"
+      },
+      {
+        "language": "tera-nginx",
+        "scopeName": "source.nginx.tera",
+        "path": "./syntaxes/tera-nginx.json"
+      },
+      {
+        "language": "tera-systemd",
+        "scopeName": "source.systemd.tera",
+        "path": "./syntaxes/tera-systemd.json"
+      },
+      {
+        "language": "tera-cpp",
+        "scopeName": "source.cpp.tera",
+        "path": "./syntaxes/tera-cpp.json"
+      },
+      {
+        "language": "tera-cisco",
+        "scopeName": "source.cisco.tera",
+        "path": "./syntaxes/tera-cisco.json"
+      },
+      {
+        "language": "tera-java",
+        "scopeName": "source.java.tera",
+        "path": "./syntaxes/tera-java.json"
+      },
+      {
+        "language": "tera-php",
+        "scopeName": "source.php.tera",
+        "path": "./syntaxes/tera-php.json"
+      },
+      {
+        "language": "tera-rust",
+        "scopeName": "source.rust.tera",
+        "path": "./syntaxes/tera-rust.json"
       }
     ],
     "snippets": [
       {
         "language": "tera-html",
+        "scopeName": "text.html.tera",
         "path": "./snippets/tera.code-snippets.json"
+      }
+    ],
+    "breakpoints": [
+      {
+        "language": "tera-html"
+      },
+      {
+        "language": "tera-xml"
+      },
+      {
+        "language": "tera-css"
+      },
+      {
+        "language": "tera-json"
+      },
+      {
+        "language": "tera-md"
+      },
+      {
+        "language": "tera-py"
+      },
+      {
+        "language": "tera-cy"
+      },
+      {
+        "language": "tera-rb"
+      },
+      {
+        "language": "tera-js"
+      },
+      {
+        "language": "tera-ts"
+      },
+      {
+        "language": "tera-yaml"
+      },
+      {
+        "language": "tera-toml"
+      },
+      {
+        "language": "tera-latex"
+      },
+      {
+        "language": "tera-lua"
+      },
+      {
+        "language": "tera-properties"
+      },
+      {
+        "language": "tera-shell"
+      },
+      {
+        "language": "tera-dockerfile"
+      },
+      {
+        "language": "tera-sql"
+      },
+      {
+        "language": "tera-groovy"
+      },
+      {
+        "language": "tera-terraform"
+      },
+      {
+        "language": "tera-nginx"
+      },
+      {
+        "language": "tera-systemd"
+      },
+      {
+        "language": "tera-cpp"
+      },
+      {
+        "language": "tera-java"
+      },
+      {
+        "language": "tera-php"
+      },
+      {
+        "language": "tera-cisco"
+      },
+      {
+        "language": "tera-rust"
       }
     ],
     "configurationDefaults": {
@@ -70,10 +650,6 @@
       }
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/karuna/tera-vscode.git"
-  },
   "galleryBanner": {
     "color": "#888888",
     "theme": "dark"
@@ -83,36 +659,27 @@
     "url": "https://github.com/karuna/tera-vscode/issues",
     "email": "karuna.murti@gmail.com"
   },
-  "icon": "images/logo.png",
   "activationEvents": [
     "onLanguage:tera-html",
     "onLanguage:tera"
   ],
-  "scripts": {
-    "vscode:prepublish": "npm run esbuild-server -- --minify && npm run esbuild-client -- --minify",
-    "esbuild-server": "esbuild ./src/server.ts --bundle --outfile=out/server.js --external:vscode --format=cjs --platform=node",
-    "esbuild-client": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
-    "esbuild": "npm run esbuild-client -- --sourcemap",
-    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
-    "lint": "eslint ./serc --ext .ts,.tsx"
-  },
   "dependencies": {
-    "angular-html-parser": "^1.8.0",
-    "prettier": "^2.2.1",
-    "vscode-html-languageservice": "^3.0.3",
-    "vscode-languageclient": "^6.1.3",
-    "vscode-languageserver": "^6.1.1"
+    "angular-html-parser": "^8.1.0",
+    "prettier": "^3.5.3",
+    "vscode-html-languageservice": "^5.3.3",
+    "vscode-languageclient": "^9.0.1",
+    "vscode-languageserver": "^9.0.1"
   },
   "devDependencies": {
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^12.12.0",
-    "@types/prettier": "^2.4.2",
-    "@types/vscode": "^1.48.0",
-    "@typescript-eslint/eslint-plugin": "^4.23.0",
-    "@typescript-eslint/parser": "^4.23.0",
-    "ember-template-lint-plugin-prettier": "^3.0.1",
-    "esbuild": "^0.25.0",
-    "eslint": "^7.26.0",
-    "typescript": "^4.2.2"
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.14.1",
+    "@types/prettier": "^2.7.3",
+    "@types/vscode": "^1.99.1",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
+    "ember-template-lint-plugin-prettier": "^5.0.0",
+    "esbuild": "^0.25.2",
+    "eslint": "^9.24.0",
+    "typescript": "^5.8.3"
   }
 }

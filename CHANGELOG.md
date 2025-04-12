@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0] - 2025-04-12
+
+- update dependencies
+- update package.json
+- fix some stuff
+- add other languages support
+- fix link
+
 ## [0.0.9] - 2021-07-23
 
 - Revert 0.0.8 as it broke down Markdown files
