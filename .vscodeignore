@@ -12,5 +12,6 @@ pnpm-workspace.yaml
 examples/**
 src/**
 build/**
+build.mjs
 **/*.map
 CONTRIBUTING.md
