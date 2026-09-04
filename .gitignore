@@ -4,3 +4,6 @@ node_modules
 .DS_Store
 *.vsix
 out
+
+# .vscode is ignored globally in ~/.gitignore; these dev configs are shared on purpose
+!.vscode/
