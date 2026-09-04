@@ -1,5 +1,36 @@
 # Changelog
 
+## [0.4.0] - 2026-09-04
+
+- Add Tera 2 syntax support, verified against the Tera 2.3.0 parser
+- Highlight components, both the definition and the two call forms
+- Highlight capture blocks, `set_global`, `break`, `continue` and `elif`
+- Highlight optional chaining, spread, ternaries, list comprehensions and slicing
+- Highlight `~` concatenation and backtick strings
+- Scope the built-in filters, tests and functions, including the Tera 2 renames
+- Highlight numbers, `True`/`False`/`None`/`null` and the component `body` variable
+- Match Tera 2 numeric literals, which are plain integers and floats only
+- Fix `>=` never being highlighted, the operator pattern had `=>` instead
+- Fold components and capture blocks, and allow whitespace control dashes when folding
+- Add Tera 2 snippets, and mark the macro and import snippets as Tera 1 only
+- Keep highlighting Tera 1 tags so existing templates are unaffected
+- Split examples into examples/tera1 and examples/tera2
+
+## [0.3.0] - 2026-09-04
+
+- Update all dependencies to their latest compatible releases
+- Raise the minimum VS Code version to 1.91, required by vscode-languageclient 10
+- Fix the extension crashing on activation, nothing written in JavaScript ran
+- Fix the formatter inserting `[object Promise]` instead of formatted text
+- Fix the client and server importing from the browser-only package entrypoints
+- Fix the formatter being registered against an unknown language id
+- Add range formatting, so Format Selection works
+- Declare vscode-languageserver-textdocument, which was imported but never a dependency
+- Add the missing language-configuration-latex.json used by the tera-latex language
+- Add an ESLint flat config so lint runs, and repair the broken build and lint scripts
+- Replace the dead marketplace badge that blocked packaging
+- Switch the package manager to pnpm
+
 ## [0.2.0] - 2025-04-12
 
 - update dependencies

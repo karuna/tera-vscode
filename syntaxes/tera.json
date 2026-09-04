@@ -1,12 +1,12 @@
 {
   "name": "tera",
   "scopeName": "source.tera",
-  "comment": "Tera Templates",
-  "foldingStartMarker": "({%\\s*(block|filter|for|if|macro|raw))",
-  "foldingStopMarker": "({%\\s*(endblock|endfilter|endfor|endif|endmacro|endraw)\\s*%})",
+  "comment": "Tera Templates (Tera 2, with Tera 1 tags retained)",
+  "foldingStartMarker": "({%-?\\s*(block|filter|for|if|macro|raw|component)\\b)",
+  "foldingStopMarker": "({%-?\\s*end(block|filter|for|if|macro|raw|component|set)\\b)",
   "patterns": [
     {
-      "begin": "({%)\\s*(raw)\\s*(%})",
+      "begin": "({%-?)\\s*(raw)\\s*(-?%})",
       "captures": {
         "1": {
           "name": "entity.other.tera.delimiter.tag"
@@ -18,7 +18,7 @@
           "name": "entity.other.tera.delimiter.tag"
         }
       },
-      "end": "({%)\\s*(endraw)\\s*(%})",
+      "end": "({%-?)\\s*(endraw)\\s*(-?%})",
       "name": "comment.block.tera.raw"
     },
     {
@@ -92,6 +92,29 @@
     "expression": {
       "patterns": [
         {
+          "match": "\\s*\\b(component)\\s+([a-zA-Z_][a-zA-Z0-9_]*(?:\\.[a-zA-Z_][a-zA-Z0-9_]*)*)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.tera"
+            },
+            "2": {
+              "name": "entity.name.function.component.tera"
+            }
+          }
+        },
+        {
+          "match": "\\s*\\b(endcomponent)(?:\\s+([a-zA-Z_][a-zA-Z0-9_]*(?:\\.[a-zA-Z_][a-zA-Z0-9_]*)*))?",
+          "captures": {
+            "1": {
+              "name": "keyword.control.tera"
+            },
+            "2": {
+              "name": "entity.name.function.component.tera"
+            }
+          }
+        },
+        {
+          "match": "\\s*\\b(block)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b",
           "captures": {
             "1": {
               "name": "keyword.control.tera"
@@ -99,10 +122,10 @@
             "2": {
               "name": "variable.other.tera.block"
             }
-          },
-          "match": "\\s*\\b(block)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+          }
         },
         {
+          "match": "\\s*\\b(filter)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b",
           "captures": {
             "1": {
               "name": "keyword.control.tera"
@@ -110,49 +133,104 @@
             "2": {
               "name": "variable.other.tera.filter"
             }
-          },
-          "match": "\\s*\\b(filter)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+          }
         },
         {
+          "match": "\\b(is)\\s+(?:(not)\\s+)?(starting_with|divisible_by|ending_with|containing|undefined|iterable|defined|integer|number|string|array|float|bool|even|none|map|odd)\\b",
           "captures": {
             "1": {
               "name": "keyword.control.tera"
             },
             "2": {
-              "name": "variable.other.tera.test"
+              "name": "keyword.control.tera"
+            },
+            "3": {
+              "name": "support.function.test.tera"
             }
-          },
-          "match": "\\s*\\b(is)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+          }
         },
         {
+          "match": "\\b(is)\\s+(?:(not)\\s+)?([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.tera"
+            },
+            "2": {
+              "name": "keyword.control.tera"
+            },
+            "3": {
+              "name": "variable.other.tera.test"
+            }
+          }
+        },
+        {
+          "name": "meta.tag.component.tera",
+          "begin": "(</?)([a-zA-Z_][a-zA-Z0-9_]*(?:\\.[a-zA-Z_][a-zA-Z0-9_]*)*)(?=[\\s/>])",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.tag.tera"
+            },
+            "2": {
+              "name": "entity.name.tag.component.tera"
+            }
+          },
+          "end": "(/?>)|(?=-?%\\}|-?\\}\\})",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.tag.tera"
+            }
+          },
+          "patterns": [
+            {
+              "match": "\\.\\.\\.",
+              "name": "keyword.operator.spread.tera"
+            },
+            {
+              "match": "([a-zA-Z_][a-zA-Z0-9_]*)(?=\\s*=)",
+              "name": "entity.other.attribute-name.tera"
+            },
+            {
+              "include": "#expression"
+            }
+          ]
+        },
+        {
+          "match": "(?<=\\{\\%-|\\{\\%)\\s*\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?!\\s*[,=])",
           "captures": {
             "1": {
               "name": "keyword.control.tera"
             }
-          },
-          "match": "(?<=\\{\\%-|\\{\\%)\\s*\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?!\\s*[,=])"
+          }
         },
         {
-          "match": "\\b(and|else|if|in|import|not|or|recursive|with(out)?\\s+context)\\b",
+          "match": "\\b(and|as|block|break|component|continue|elif|else|endblock|endcomponent|endfilter|endfor|endif|endraw|endset|extends|filter|for|if|import|in|include|is|macro|endmacro|not|or|raw|recursive|set_global|set|with(out)?\\s+context)\\b",
           "name": "keyword.control.tera"
         },
         {
-          "match": "\\b(true|false|none)\\b",
+          "match": "\\b(true|True|false|False|none|None|null)\\b",
           "name": "constant.language.tera"
         },
         {
-          "match": "\\b(loop|super|self|varargs|kwargs)\\b",
+          "match": "\\b(loop|super|self|body|varargs|kwargs)\\b",
           "name": "variable.language.tera"
         },
         {
-          "match": "[a-zA-Z_][a-zA-Z0-9_]*",
-          "name": "variable.other.tera"
+          "match": "\\b(range|throw)\\b(?=\\s*\\()",
+          "name": "support.function.builtin.tera"
         },
         {
-          "match": "(\\+|\\-|\\*\\*|\\*|//|/|%)",
-          "name": "keyword.operator.arithmetic.tera"
+          "match": "(\\|)\\s*(newlines_to_br|escape_html|capitalize|escape_xml|trim_start|pluralize|wordcount|group_by|trim_end|truncate|default|replace|reverse|double|escape|indent|length|unique|values|first|float|lower|pairs|round|shout|split|title|upper|join|keys|last|safe|sort|trim|abs|get|int|nth|str)\\b",
+          "captures": {
+            "1": {
+              "name": "punctuation.other.tera"
+            },
+            "2": {
+              "name": "support.function.filter.tera"
+            }
+          }
         },
         {
+          "match": "(\\|)\\s*([a-zA-Z_][a-zA-Z0-9_]*)",
           "captures": {
             "1": {
               "name": "punctuation.other.tera"
@@ -160,10 +238,25 @@
             "2": {
               "name": "variable.other.tera.filter"
             }
-          },
-          "match": "(\\|)([a-zA-Z_][a-zA-Z0-9_]*)"
+          }
         },
         {
+          "match": "\\.\\.\\.",
+          "name": "keyword.operator.spread.tera"
+        },
+        {
+          "match": "(\\?\\.)([a-zA-Z_][a-zA-Z0-9_]*)",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.optional-chaining.tera"
+            },
+            "2": {
+              "name": "variable.other.tera.attribute"
+            }
+          }
+        },
+        {
+          "match": "(\\.)([a-zA-Z_][a-zA-Z0-9_]*)",
           "captures": {
             "1": {
               "name": "punctuation.other.tera"
@@ -171,8 +264,19 @@
             "2": {
               "name": "variable.other.tera.attribute"
             }
-          },
-          "match": "(\\.)([a-zA-Z_][a-zA-Z0-9_]*)"
+          }
+        },
+        {
+          "match": "\\b[0-9]+(\\.[0-9]+)?\\b",
+          "name": "constant.numeric.tera"
+        },
+        {
+          "match": "[a-zA-Z_][a-zA-Z0-9_]*",
+          "name": "variable.other.tera"
+        },
+        {
+          "match": "(\\*\\*|//|\\+|\\-|\\*|/|%|~)",
+          "name": "keyword.operator.arithmetic.tera"
         },
         {
           "begin": "\\[",
@@ -221,7 +325,7 @@
           "name": "punctuation.other.tera"
         },
         {
-          "match": "(==|<=|=>|<|>|!=)",
+          "match": "(==|!=|<=|>=|<|>)",
           "name": "keyword.operator.comparison.tera"
         },
         {
@@ -269,13 +373,13 @@
           ]
         },
         {
-          "begin": "@\/",
+          "begin": "@/",
           "beginCaptures": [
             {
               "name": "punctuation.definition.regexp.begin.tera"
             }
           ],
-          "end": "\/",
+          "end": "/",
           "endCaptures": [
             {
               "name": "punctuation.definition.regexp.end.tera"
@@ -285,6 +389,26 @@
           "patterns": [
             {
               "include": "#simple_escapes"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.other.backtick.tera",
+          "begin": "`",
+          "beginCaptures": [
+            {
+              "name": "punctuation.definition.string.begin.tera"
+            }
+          ],
+          "end": "`",
+          "endCaptures": [
+            {
+              "name": "punctuation.definition.string.end.tera"
+            }
+          ],
+          "patterns": [
+            {
+              "include": "#string"
             }
           ]
         }

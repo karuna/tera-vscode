@@ -1,0 +1,28 @@
+{% filter upper %}
+  Hello
+{% endfilter %}
+
+{# Filters renamed in Tera 2 #}
+{{ content | escape_html }}
+{{ content | escape_xml }}
+{{ text | newlines_to_br }}
+{{ value | str }}
+
+{# Filters taking keyword arguments #}
+{{ text | truncate(length=10) }}
+{{ text | truncate(length=10, end="...") }}
+{{ text | replace(from="Robert", to="Bob") }}
+{{ text | indent(width=2) }}
+{{ text | split(pat=",") }}
+{{ items | join(sep=", ") }}
+{{ items | nth(n=1) }}
+{{ mapping | get(key="name") }}
+{{ items | group_by(attribute="year") }}
+{{ number | round(precision=2) }}
+{{ count | pluralize(singular="item", plural="items") }}
+{{ maybe_missing | default(value="fallback") }}
+
+{# Chaining, and safety #}
+{{ content | replace(from="a", to="b") | safe }}
+{{ items | reverse | first }}
+{{ text | trim | lower | title }}

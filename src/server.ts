@@ -4,7 +4,8 @@
  * ------------------------------------------------------------------------------------------ */
 
 import { getLanguageService } from 'vscode-html-languageservice';
-import { createConnection, InitializeParams, ProposedFeatures, TextDocuments, TextDocumentSyncKind } from 'vscode-languageserver';
+import { InitializeParams, TextDocuments, TextDocumentSyncKind } from 'vscode-languageserver';
+import { createConnection, ProposedFeatures } from 'vscode-languageserver/node';
 import { TextDocument } from 'vscode-languageserver-textdocument';
 
 // Create a connection for the server. The connection uses Node's IPC as a transport.
@@ -29,7 +30,7 @@ connection.onInitialize((_params: InitializeParams) => {
 	};
 });
 
-connection.onCompletion(async (textDocumentPosition, token) => {
+connection.onCompletion(async (textDocumentPosition, _token) => {
 	const document = documents.get(textDocumentPosition.textDocument.uri);
 	if (!document) {
 		return null;

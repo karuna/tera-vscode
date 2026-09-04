@@ -1,0 +1,9 @@
+{# Use {%- and -%} to strip whitespace around a statement #}
+{% set my_var = 2 -%}
+{{ my_var }}
+
+{%- if my_var -%}
+  {{- my_var -}}
+{%- endif -%}
+
+{#- Comments support the same markers -#}

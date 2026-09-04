@@ -33,15 +33,7 @@ export class TerraPrettierFormatter
     _options: FormattingOptions,
     _token: CancellationToken
   ): ProviderResult<TextEdit[]> {
-    const text = document.getText(range);
-
-    const prettierOptions = this.getPrettierOptions(document.uri.fsPath);
-
-    // Argument of type '{ parser: string; }' is not assignable to parameter of type 'Options'.ts(2345)
-    // @ts-ignore 'glimmer' is not a released parser for prettier so this fails the type check
-    const formatted = prettier.format(text, prettierOptions);
-
-    return [TextEdit.replace(range, formatted)];
+    return this.formatRange(document, range);
   }
   provideDocumentFormattingEdits(
     document: TextDocument,
@@ -53,25 +45,26 @@ export class TerraPrettierFormatter
       activeTextEditor &&
       activeTextEditor.document.languageId === "tera-html"
     ) {
-      const text = document.getText();
-
-      const prettierOptions = this.getPrettierOptions(document.uri.fsPath);
-
-      // Argument of type '{ parser: string; }' is not assignable to parameter of type 'Options'.ts(2345)
-      // @ts-ignore 'glimmer' is not a released parser for prettier so this fails the type check
-      const formatted = prettier.format(text, prettierOptions);
-
-      const range = fullDocumentRange(document);
-      return [TextEdit.replace(range, formatted)];
+      return this.formatRange(document, fullDocumentRange(document));
     }
   }
 
-  getPrettierOptions(path: string) {
-    let options = DEFAULT_OPTIONS;
-    const configFile = prettier.resolveConfig.sync(path);
+  private async formatRange(
+    document: TextDocument,
+    range: Range
+  ): Promise<TextEdit[]> {
+    const text = document.getText(range);
+    const prettierOptions = await this.getPrettierOptions(document.uri.fsPath);
+    const formatted = await prettier.format(text, prettierOptions);
+
+    return [TextEdit.replace(range, formatted)];
+  }
+
+  async getPrettierOptions(path: string): Promise<prettier.Options> {
+    const configFile = await prettier.resolveConfig(path);
     if (configFile) {
       return Object.assign(configFile, DEFAULT_OPTIONS);
     }
-    return options;
+    return DEFAULT_OPTIONS;
   }
 }

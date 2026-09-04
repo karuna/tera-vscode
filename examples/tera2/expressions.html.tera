@@ -1,0 +1,36 @@
+{# Optional chaining: no error if a or b is missing #}
+{{ a?.b?.c or "default" }}
+
+{# Ternary. Both branches are required #}
+{{ "majeur" if age >= 18 else "mineur" }}
+
+{# List comprehension #}
+{{ [a for a in numbers if a is odd] }}
+{{ [x if x > 1 else 0 for x in numbers] }}
+{{ [(a * 2) + 1 for a in numbers] }}
+{{ [v for k, v in data] | safe }}
+
+{# Slicing, [start:stop:step] like Python. Indexing replaces Tera 1's my_vec.0 #}
+{{ numbers[0] }}
+{{ numbers[-1] }}
+{{ numbers[:-1] }}
+{{ numbers[1:2] }}
+{{ numbers[0:2:2] }}
+{{ product.name[::-1] }}
+
+{# String concatenation with ~, and the three string literal forms #}
+{{ "hello " ~ 'world' ~ `!` }}
+
+{# Math and comparisons #}
+{{ 1 + 1 }} {{ 10 / 2 }} {{ 2 % 2 }} {{ 2 ** 8 }} {{ 7 // 2 }}
+{{ a == b }} {{ a != b }} {{ a >= b }} {{ a <= b }}
+
+{# in checks #}
+{{ some_var in [1, 2, 3] }}
+{{ an_ident not in an_obj }}
+
+{# Literals #}
+{{ true }} {{ True }} {{ false }} {{ False }}
+{{ none }} {{ None }} {{ null }}
+{{ 1 }} {{ 1000 }} {{ 3.14 }} {{ -1 }}
+{# Tera 2 has no underscore separators, exponents, hex, octal or binary literals #}

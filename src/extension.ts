@@ -6,7 +6,8 @@
 import * as path from 'path';
 import { commands, CompletionList, ExtensionContext, Uri, workspace, languages } from 'vscode';
 import { getLanguageService } from 'vscode-html-languageservice';
-import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from 'vscode-languageclient';
+import { LanguageClientOptions } from 'vscode-languageclient';
+import { LanguageClient, ServerOptions, TransportKind } from 'vscode-languageclient/node';
 import { getCSSVirtualContent, isInsideStyleRegion } from './embeddedSupport';
 import { TerraPrettierFormatter } from './teraPrettier';
 
@@ -42,8 +43,10 @@ export function activate(context: ExtensionContext) {
 		}
 	});
 
+	const formatter = new TerraPrettierFormatter();
 	context.subscriptions.push(
-		languages.registerDocumentFormattingEditProvider('html.tera', new TerraPrettierFormatter())
+		languages.registerDocumentFormattingEditProvider('tera-html', formatter),
+		languages.registerDocumentRangeFormattingEditProvider('tera-html', formatter)
 	);
 
 	const clientOptions: LanguageClientOptions = {

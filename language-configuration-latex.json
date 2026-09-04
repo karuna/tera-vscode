@@ -1,6 +1,7 @@
 {
   "comments": {
-    // symbols used for start and end a block comment. Remove this entry if your language does not support block comments
+    // LaTeX uses % for line comments; {# #} remains available for Tera comments
+    "lineComment": "%",
     "blockComment": [ "{#", "#}" ]
   },
   // symbols used as brackets
@@ -8,6 +9,7 @@
     [ "{{", "}}" ],
     [ "{%", "%}" ],
     [ "{#", "#}" ],
+    [ "{", "}" ],
     [ "[", "]" ],
     [ "(", ")" ]
   ],
@@ -16,23 +18,22 @@
     [ "{{", "}}" ],
     [ "{%", "%}" ],
     [ "{#", "#}" ],
+    [ "{", "}" ],
     [ "[", "]" ],
     [ "(", ")" ],
-    [ "\"", "\"" ],
-    [ "'", "'" ]
+    [ "$", "$" ]
   ],
   // symbols that that can be used to surround a selection
   "surroundingPairs": [
     [ "{", "}" ],
     [ "[", "]" ],
     [ "(", ")" ],
-    [ "\"", "\"" ],
-    [ "'", "'" ]
+    [ "$", "$" ]
   ],
   "folding": {
     "markers": {
-      "start": "{%-?\\s*(block|filter|for|if|macro|raw|component)|\\{%-?\\s*set\\s+[a-zA-Z_][a-zA-Z0-9_]*\\s*(\\|[^%=]*)?-?%\\}",
-      "end": "{%-?\\s*end(block|filter|for|if|macro|raw|component|set)\\s*-?%}"
+      "start": "{%-?\\s*(block|filter|for|if|macro|raw|component)|\\{%-?\\s*set\\s+[a-zA-Z_][a-zA-Z0-9_]*\\s*(\\|[^%=]*)?-?%\\}|\\\\begin\\{",
+      "end": "{%-?\\s*end(block|filter|for|if|macro|raw|component|set)\\s*-?%}|\\\\end\\{"
     }
   }
 }

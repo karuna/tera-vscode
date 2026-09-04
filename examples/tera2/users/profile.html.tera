@@ -1,0 +1,10 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+  Hello {{ username }}
+  {{ bio }}
+
+  {% if bio is not defined %}
+    This user has no bio yet.
+  {% endif %}
+{% endblock content %}

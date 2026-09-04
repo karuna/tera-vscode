@@ -1,0 +1,32 @@
+{# Components replace Tera 1 macros, which were removed in Tera 2.
+   They are registered globally, so there is nothing to import. #}
+
+{% component button(label: string, variant: string = "primary") %}
+  <button class="btn btn-{{ variant }}">{{ label }}</button>
+{% endcomponent button %}
+
+{# Use a dot in the name to namespace a component.
+   ...attrs makes it open, so callers may pass extra arguments. #}
+{% component ui.button(label: string, variant: string = "primary", ...attrs) %}
+  <button class="btn btn-{{ variant }}">
+    {{ label }}{% if attrs.important %}!!{% endif %}
+  </button>
+{% endcomponent ui.button %}
+
+{% component forms.input(name: string, label: string, required: bool = false) %}
+  <label for="{{ name }}">{{ label }}{% if required %}*{% endif %}</label>
+  <input type="text" name="{{ name }}" {% if required %}required{% endif %}>
+{% endcomponent forms.input %}
+
+{# body is passed in automatically and holds the component's children #}
+{% component ui.forms.widget(title: string) %}
+  <div class="widget">
+    <h3>{{ title }}</h3>
+    {{ body }}
+  </div>
+{% endcomponent ui.forms.widget %}
+
+{# Metadata can be attached after the argument list #}
+{% component card(greeting: string) {"css": "./card.css"} %}
+  <div class="card">{{ greeting }}</div>
+{% endcomponent card %}

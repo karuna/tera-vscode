@@ -1,18 +1,32 @@
 # Tera extension for VS Code
 
-[![](https://vsmarketplacebadge.apphb.com/version/karunamurti.tera.svg)](https://marketplace.visualstudio.com/items?itemName=karunamurti.tera)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/karunamurti.tera)](https://marketplace.visualstudio.com/items?itemName=karunamurti.tera)
 
 VS Code extension for syntax highlighting and formatting [Tera][tera] templates. Based on https://github.com/danielchatfield/atom-jinja2.
 
 ## Features
 
-Syntax highlighting for Tera Template.
+Syntax highlighting for Tera templates, embedded in 28 host languages (HTML, XML, CSS, JSON,
+Markdown, Python, Ruby, JavaScript, TypeScript, YAML, TOML, LaTeX, Rust and more).
+
+Both **Tera 2** and Tera 1 syntax are highlighted. Tera 2 additions include components
+(`{% component %}` / `{{<name />}}`), capture blocks (`{% set x %}...{% endset %}`),
+optional chaining (`a?.b`), spread (`{...base}`), ternaries, list comprehensions, slicing
+and the renamed built-in filters and tests. Tera 1 tags such as `{% macro %}` and
+`{% import %}` are still highlighted so existing templates keep working.
 
 ![Screnshot](images/screenshot.png)
 
+## Examples
+
+Sample templates live in [`examples/`](examples): [`examples/tera1`](examples/tera1)
+for Tera 1 syntax and [`examples/tera2`](examples/tera2) for Tera 2. Open any of them
+to see the highlighting. The Tera 2 examples are checked against the Tera 2 parser, so
+they double as a reference for the new syntax.
+
 ## Requirements
 
-Visual Studio Code. Version 1.19.1 as this extension made.
+Visual Studio Code 1.91.0 or later.
 
 ## Snippets
 
@@ -30,7 +44,24 @@ Visual Studio Code. Version 1.19.1 as this extension made.
 | extend  | `{% extends "" %}`                 |
 | include | `{% include "" %}`                 |
 | import  | `{% import "" %}`                  |
-| macro   | `{% macro %} {% endmacro %}`       |
+| macro   | `{% macro %} {% endmacro %}` (Tera 1 only) |
+
+### Tera 2
+
+| Snippet       | Description                                    |
+| ------------- | ---------------------------------------------- |
+| component     | `{% component %} {% endcomponent %}`           |
+| comp          | `{{<name arg="" />}}`                          |
+| compbody      | `{% <name> %} {% </name> %}`                   |
+| set           | `{% set = %}`                                  |
+| setglobal     | `{% set_global = %}`                           |
+| setblock      | `{% set %} {% endset %}`                       |
+| raw           | `{% raw %} {% endraw %}`                       |
+| comment       | `{# #}`                                        |
+| ternary       | `{{ a if cond else b }}`                       |
+| comprehension | `{% set out = [x for x in items] %}`           |
+| break         | `{% break %}`                                  |
+| continue      | `{% continue %}`                               |
 
 ## Release Notes
 

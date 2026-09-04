@@ -1,0 +1,25 @@
+<div class="page">
+  {# Self-closing form, with literal keyword arguments #}
+  {{<ui.button label="Click me" variant="secondary" />}}
+
+  {# Anything that is not a string needs the {..} form, like JSX #}
+  {{<forms.input name="email" label="Email Address" required={true} />}}
+
+  {# Spread the rest of a map into the call #}
+  {{<ui.button label="Save" {...obj} />}}
+
+  {# Block form. The children become the component's `body` variable #}
+  {% <ui.forms.widget title="Stats"> %}
+    <p>This is a widget!</p>
+    {{<ui.button label="Sign up" variant="primary" />}}
+  {% </ui.forms.widget> %}
+
+  {# Shorthand: a bare name passes the variable of the same name #}
+  {% <ui.forms.widget title> %}
+    <p>Using the shorthand argument.</p>
+  {% </ui.forms.widget> %}
+</div>
+
+{# A component call is an expression, so it can be assigned #}
+{% set rendered = <ui.button label="Assigned" /> %}
+{{ rendered }}

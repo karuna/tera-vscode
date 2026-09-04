@@ -1,0 +1,25 @@
+{% set my_var = "hello" %}
+{% set my_var = 1 + 4 %}
+{% set my_var = some_var %}
+{% set my_var = range(end=3) %}
+
+{# set_global writes to the global context instead of the current scope #}
+{% set_global counter = 0 %}
+
+{# Map and array literals #}
+{% set base = {"a": 1, "b": 2} %}
+{% set numbers = [1, 2, 3] %}
+
+{# Spread, for both maps and arrays #}
+{% set merged = {...base, "d": 4} %}
+{% set padded = [0, ...numbers, 99] %}
+
+{# Capture block: everything between set and endset becomes the value #}
+{% set captured %}
+  literal <b> and a value {{ some_html }}
+{% endset %}
+{{ captured }}
+
+{# A capture block can be piped through filters #}
+{% set shouted | upper %}hello{% endset %}
+{{ shouted }}
