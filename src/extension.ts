@@ -43,8 +43,10 @@ export function activate(context: ExtensionContext) {
 		}
 	});
 
+	const formatter = new TerraPrettierFormatter();
 	context.subscriptions.push(
-		languages.registerDocumentFormattingEditProvider('html.tera', new TerraPrettierFormatter())
+		languages.registerDocumentFormattingEditProvider('tera-html', formatter),
+		languages.registerDocumentRangeFormattingEditProvider('tera-html', formatter)
 	);
 
 	const clientOptions: LanguageClientOptions = {
