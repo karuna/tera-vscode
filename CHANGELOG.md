@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.3.0] - 2026-09-04
+
+- Update all dependencies to their latest compatible releases
+- Raise the minimum VS Code version to 1.91 (required by vscode-languageclient/server v10)
+- Fix the formatter inserting `[object Promise]` instead of formatted text (Prettier 3 async API)
+- Fix the language client and server importing from the browser-only package entrypoints
+- Declare `vscode-languageserver-textdocument`, which was imported but never a direct dependency
+- Add the missing `language-configuration-latex.json` referenced by the `tera-latex` language
+- Add an ESLint flat config so `lint` runs, and repair the broken build/lint scripts
+- Switch the package manager to pnpm
+
 ## [0.2.0] - 2025-04-12
 
 - update dependencies

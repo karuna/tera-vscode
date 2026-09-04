@@ -1,9 +1,15 @@
 .vscode/**
 .vscode-test/**
 .gitignore
+.vscodeignore
 tests/**
 vsc-extension-quickstart.md
 node_modules
 tsconfig.json
-src/
-webpack.config.js
+eslint.config.mjs
+pnpm-lock.yaml
+pnpm-workspace.yaml
+examples/**
+src/**
+**/*.map
+CONTRIBUTING.md

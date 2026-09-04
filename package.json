@@ -2,11 +2,11 @@
   "name": "tera",
   "displayName": "Tera",
   "description": "A powerful, easy-to-use template language based on Rust, inspired by tera2 and Django Templates.",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "publisher": "karunamurti",
   "author": "Karuna Murti",
   "engines": {
-    "vscode": "^1.48.0"
+    "vscode": "^1.91.0"
   },
   "license": "MIT",
   "icon": "images/logo.png",
@@ -24,12 +24,18 @@
   },
   "main": "./out/main.js",
   "scripts": {
-    "vscode:prepublish": "npm run esbuild-server -- --minify && npm run esbuild-client -- --minify",
-    "esbuild-server": "esbuild ./src/server.ts --bundle --outfile=out/server.js --external:vscode --format=cjs --platform=node",
-    "esbuild-client": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
-    "esbuild": "npm run esbuild-client -- --sourcemap",
-    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
-    "lint": "eslint ./serc --ext .ts,.tsx"
+    "vscode:prepublish": "pnpm run esbuild-client-min && pnpm run esbuild-server-min",
+    "esbuild-client": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --sourcemap",
+    "esbuild-server": "esbuild ./src/server.ts --bundle --outfile=out/server.js --external:vscode --format=cjs --platform=node --sourcemap",
+    "esbuild-client-min": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --minify",
+    "esbuild-server-min": "esbuild ./src/server.ts --bundle --outfile=out/server.js --external:vscode --format=cjs --platform=node --minify",
+    "esbuild": "pnpm run esbuild-client && pnpm run esbuild-server",
+    "esbuild-watch": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --sourcemap --watch & esbuild ./src/server.ts --bundle --outfile=out/server.js --external:vscode --format=cjs --platform=node --sourcemap --watch & wait",
+    "compile": "tsc --noEmit",
+    "watch": "tsc --noEmit --watch",
+    "lint": "eslint src",
+    "package": "vsce package --no-dependencies",
+    "publish": "vsce publish --no-dependencies"
   },
   "contributes": {
     "languages": [
@@ -106,8 +112,8 @@
           "tera-py"
         ],
         "extensions": [
-          "py.tera",
-          "pyi.tera"
+          ".py.tera",
+          ".pyi.tera"
         ],
         "configuration": "./language-configuration.json"
       },
@@ -118,9 +124,9 @@
           "tera-cy"
         ],
         "extensions": [
-          "pyx.tera",
-          "pxd.tera",
-          "pxi.tera"
+          ".pyx.tera",
+          ".pxd.tera",
+          ".pxi.tera"
         ],
         "configuration": "./language-configuration.json"
       },
@@ -131,8 +137,8 @@
           "tera-rb"
         ],
         "extensions": [
-          "rb.tera",
-          "rbw.tera"
+          ".rb.tera",
+          ".rbw.tera"
         ],
         "configuration": "./language-configuration.json"
       },
@@ -144,7 +150,7 @@
           "tera-js"
         ],
         "extensions": [
-          "js.tera"
+          ".js.tera"
         ],
         "configuration": "./language-configuration.json"
       },
@@ -156,7 +162,7 @@
           "tera-ts"
         ],
         "extensions": [
-          "ts.tera"
+          ".ts.tera"
         ],
         "configuration": "./language-configuration.json"
       },
@@ -552,7 +558,6 @@
     "snippets": [
       {
         "language": "tera-html",
-        "scopeName": "text.html.tera",
         "path": "./snippets/tera.code-snippets.json"
       }
     ],
@@ -650,6 +655,14 @@
       }
     }
   },
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": {
+      "supported": true
+    }
+  },
   "galleryBanner": {
     "color": "#888888",
     "theme": "dark"
@@ -664,22 +677,22 @@
     "onLanguage:tera"
   ],
   "dependencies": {
-    "angular-html-parser": "^8.1.0",
-    "prettier": "^3.5.3",
-    "vscode-html-languageservice": "^5.3.3",
-    "vscode-languageclient": "^9.0.1",
-    "vscode-languageserver": "^9.0.1"
+    "prettier": "^3.9.6",
+    "vscode-html-languageservice": "^5.6.2",
+    "vscode-languageclient": "^10.1.1",
+    "vscode-languageserver": "^10.1.1",
+    "vscode-languageserver-textdocument": "^1.0.14"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.10",
-    "@types/node": "^22.14.1",
-    "@types/prettier": "^2.7.3",
-    "@types/vscode": "^1.99.1",
-    "@typescript-eslint/eslint-plugin": "^8.29.1",
-    "@typescript-eslint/parser": "^8.29.1",
-    "ember-template-lint-plugin-prettier": "^5.0.0",
-    "esbuild": "^0.25.2",
-    "eslint": "^9.24.0",
-    "typescript": "^5.8.3"
-  }
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.1",
+    "@types/vscode": "1.91.0",
+    "@typescript-eslint/eslint-plugin": "^8.69.0",
+    "@typescript-eslint/parser": "^8.69.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.9.1",
+    "typescript": "^6.0.3"
+  },
+  "packageManager": "pnpm@11.1.0"
 }

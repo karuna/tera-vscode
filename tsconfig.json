@@ -1,13 +1,19 @@
 {
     "compilerOptions": {
-        "target": "es2019",
+        "target": "es2022",
         "lib": [
-            "ES2019"
+            "ES2022"
         ],
-        "module": "commonjs",
-        "moduleResolution": "node",
+        "module": "node18",
         "sourceMap": true,
         "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "types": [
+            "node",
+            "vscode"
+        ],
+        "forceConsistentCasingInFileNames": true,
         "outDir": "out",
         "rootDir": "src"
     },

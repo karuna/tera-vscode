@@ -1,6 +1,6 @@
 # Tera extension for VS Code
 
-[![](https://vsmarketplacebadge.apphb.com/version/karunamurti.tera.svg)](https://marketplace.visualstudio.com/items?itemName=karunamurti.tera)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/karunamurti.tera)](https://marketplace.visualstudio.com/items?itemName=karunamurti.tera)
 
 VS Code extension for syntax highlighting and formatting [Tera][tera] templates. Based on https://github.com/danielchatfield/atom-jinja2.
 
