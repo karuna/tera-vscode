@@ -15,6 +15,7 @@
 - Add Tera 2 snippets, and mark the macro and import snippets as Tera 1 only
 - Keep highlighting Tera 1 tags so existing templates are unaffected
 - Split examples into examples/tera1 and examples/tera2
+- Shrink the bundle from 5.0 MB to 1.8 MB by dropping unused Prettier parsers
 
 ## [0.3.0] - 2026-09-04
 

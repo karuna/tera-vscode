@@ -26,6 +26,7 @@ Useful commands:
 | ----------------------- | --------------------------------------------- |
 | `pnpm run esbuild`      | Build `out/main.js` and `out/server.js`       |
 | `pnpm run esbuild-watch`| Same, rebuilding on change                     |
+| `pnpm run esbuild-min`  | Minified build, as used for publishing         |
 | `pnpm run compile`      | Type check only, no emit                       |
 | `pnpm run lint`         | ESLint                                         |
 | `pnpm run package`      | Build a `.vsix`                                |
@@ -49,6 +50,15 @@ If you do need to call `vsce` by hand, pass the flag yourself:
 ```
 pnpm exec vsce ls --no-dependencies
 ```
+
+## Bundle size
+
+`build.mjs` stubs out the Prettier parser plugins the extension can never use.
+Prettier lazily loads one plugin per parser and `teraPrettier` always asks for
+`glimmer`, but esbuild has to inline every dynamic `import()` when bundling to CJS,
+which put flow, typescript, markdown and the rest into the output. `glimmer`, `yaml`
+and `babel` are kept: the last two are what `resolveConfig` uses to read
+`.prettierrc` and `.prettierrc.json`. Removing more will break config loading.
 
 ## Grammars
 
