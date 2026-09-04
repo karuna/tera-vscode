@@ -2,38 +2,34 @@
 
 ## [0.4.0] - 2026-09-04
 
-- Support Tera 2 syntax, verified against the Tera 2.3.0 parser and docs
-- Highlight components: `{% component %}`/`{% endcomponent %}` definitions and both
-  usage forms, `{{<name arg="v" />}}` and `{% <name> %}`...`{% </name> %}`
-- Highlight capture blocks (`{% set x %}`...`{% endset %}`), `set_global`, `break`,
-  `continue` and `elif`
-- Highlight the Tera 2 expression syntax: optional chaining `a?.b`, spread `...`,
-  ternaries, list comprehensions, slicing, `~` concatenation and backtick strings
-- Scope the Tera 2 built-in filters, tests and functions distinctly, including the
-  renames (`escape_html`, `newlines_to_br`, `divisible_by`, `str`, `map`)
-- Highlight numbers, `True`/`False`/`None`/`null`, and the `body` component variable
-- Fix `>=` never being recognised: the operator pattern had `=>` instead
-- Fold `{% component %}` and `{% set %}` capture blocks, and tolerate whitespace-control
-  dashes in all folding markers
-- Add Tera 2 snippets; the `macro` and `import` snippets are marked Tera 1 only
-- Tera 1 tags stay highlighted, so existing templates are unaffected
-- Match Tera 2's actual numeric literals: plain integers and floats only, since
-  Tera has no underscore separators, exponents, hex, octal or binary literals
-- Split `examples/` into `examples/tera1` and `examples/tera2`; every Tera 2
-  example is verified to parse with the Tera 2.3.0 parser
+- Add Tera 2 syntax support, verified against the Tera 2.3.0 parser
+- Highlight components, both the definition and the two call forms
+- Highlight capture blocks, `set_global`, `break`, `continue` and `elif`
+- Highlight optional chaining, spread, ternaries, list comprehensions and slicing
+- Highlight `~` concatenation and backtick strings
+- Scope the built-in filters, tests and functions, including the Tera 2 renames
+- Highlight numbers, `True`/`False`/`None`/`null` and the component `body` variable
+- Match Tera 2 numeric literals, which are plain integers and floats only
+- Fix `>=` never being highlighted, the operator pattern had `=>` instead
+- Fold components and capture blocks, and allow whitespace control dashes when folding
+- Add Tera 2 snippets, and mark the macro and import snippets as Tera 1 only
+- Keep highlighting Tera 1 tags so existing templates are unaffected
+- Split examples into examples/tera1 and examples/tera2
 
 ## [0.3.0] - 2026-09-04
 
 - Update all dependencies to their latest compatible releases
-- Raise the minimum VS Code version to 1.91 (required by vscode-languageclient/server v10)
-- Fix the formatter inserting `[object Promise]` instead of formatted text (Prettier 3 async API)
-- Fix the language client and server importing from the browser-only package entrypoints
-- Declare `vscode-languageserver-textdocument`, which was imported but never a direct dependency
-- Add the missing `language-configuration-latex.json` referenced by the `tera-latex` language
-- Add an ESLint flat config so `lint` runs, and repair the broken build/lint scripts
+- Raise the minimum VS Code version to 1.91, required by vscode-languageclient 10
+- Fix the extension crashing on activation, nothing written in JavaScript ran
+- Fix the formatter inserting `[object Promise]` instead of formatted text
+- Fix the client and server importing from the browser-only package entrypoints
+- Fix the formatter being registered against an unknown language id
+- Add range formatting, so Format Selection works
+- Declare vscode-languageserver-textdocument, which was imported but never a dependency
+- Add the missing language-configuration-latex.json used by the tera-latex language
+- Add an ESLint flat config so lint runs, and repair the broken build and lint scripts
+- Replace the dead marketplace badge that blocked packaging
 - Switch the package manager to pnpm
-- Fix the bundled output crashing on activation: 17 unresolved requires from
-  vscode-html-languageservice, and an undefined `import.meta.url` in Prettier
 
 ## [0.2.0] - 2025-04-12
 
