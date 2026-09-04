@@ -38,6 +38,7 @@
     "watch": "tsc --noEmit --watch",
     "lint": "eslint src",
     "package": "vsce package --no-dependencies",
+    "package-ls": "vsce ls --tree --no-dependencies",
     "publish": "vsce publish --no-dependencies"
   },
   "contributes": {
