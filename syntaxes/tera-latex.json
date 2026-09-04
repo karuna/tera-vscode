@@ -3,8 +3,8 @@
   "scopeName": "text.latex.tera",
   "comment": "Tera Latex Templates",
   "firstLineMatch": "^(\\(\\(\\* extends [\"'][^\"']+[\"'] \\*\\)\\)",
-  "foldingStartMarker": "(\\(\\(\\*\\s*(block|filter|for|if|macro|raw))",
-  "foldingStopMarker": "(\\(\\(\\*\\s*(endblock|endfilter|endfor|endif|endmacro|endraw)\\s*\\*\\)\\))",
+  "foldingStartMarker": "(\\(\\(\\*\\s*(block|filter|for|if|macro|raw|component))",
+  "foldingStopMarker": "(\\(\\(\\*\\s*(endblock|endfilter|endfor|endif|endmacro|endraw|endcomponent|endset)\\s*\\*\\)\\))",
   "patterns": [
     {
       "include": "text.tex.latex"

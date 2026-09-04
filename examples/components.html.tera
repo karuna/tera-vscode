@@ -1,0 +1,23 @@
+{# Tera 2 components #}
+{% component ui.button(label: string, variant: string = "primary", ...attrs) %}
+  <button class="btn btn-{{ variant }}">
+    {{ label }}{% if attrs.important %}!!{% endif %}
+  </button>
+{% endcomponent ui.button %}
+
+{% component ui.forms.widget(title: string) %}
+  <div class="widget">
+    <h3>{{ title }}</h3>
+    {{ body }}
+  </div>
+{% endcomponent ui.forms.widget %}
+
+<div class="page">
+  {{<ui.button label="Click me" variant="secondary" {...obj} />}}
+  {{<forms.input name="email" label="Email Address" required={true} />}}
+
+  {% <ui.forms.widget title> %}
+    <p>This is a widget!</p>
+    {{<ui.button label="Sign up" variant="primary" />}}
+  {% </ui.forms.widget> %}
+</div>

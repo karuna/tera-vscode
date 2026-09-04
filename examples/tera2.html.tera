@@ -1,0 +1,29 @@
+{# Tera 2 expressions #}
+{% set m = {...base, "d": 4} %}
+{% set nums = [0, ...numbers, 99] %}
+{% set_global total = 0 %}
+
+{{ a?.b?.c or "default" }}
+{{ "majeur" if age >= 18 else "mineur" }}
+{{ [get_post(id=id) for id in ids] }}
+{{ [x if x > 1 else 0 for x in numbers] }}
+
+{{ numbers[0] }} {{ numbers[:-1] }} {{ numbers[0:2:2] }} {{ product.name[::-1] }}
+{{ "hello " ~ 'world' ~ `!` }}
+{{ 0xFF }} {{ 1_000 }} {{ 3.14 }} {{ True }} {{ None }} {{ null }}
+
+{# renamed built-ins #}
+{{ content | escape_html | newlines_to_br | str | safe }}
+{{ text | truncate(length=10) | indent(width=2) }}
+{% if x is divisible_by(divisor=3) and y is not defined %}ok{% endif %}
+{% if value is map %}a map{% endif %}
+{{ range(end=5) }}
+
+{# capture block #}
+{% set captured %}literal <b> and value {{ some_html }}{% endset %}
+{{ captured }}
+
+{% for n in nums %}
+  {% if n == 3 %}{% continue %}{% elif n > 8 %}{% break %}{% endif %}
+  {{ loop.index }}: {{ n }}
+{% endfor %}

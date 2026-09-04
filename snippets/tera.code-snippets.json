@@ -81,7 +81,7 @@
   "Import": {
     "prefix": "import",
     "body": "{% import \"$1\" as $2 %}",
-    "description": "Import a file containing a micro"
+    "description": "Tera 1 only - removed in Tera 2"
   },
   "Macro": {
     "prefix": "macro",
@@ -90,6 +90,82 @@
       " $2",
       "{% endmacro $3 %}"
     ],
-    "description": "A function or a component that returns some text"
+    "description": "Tera 1 only - macros were removed in Tera 2, use a component instead"
+  },
+  "Component": {
+    "prefix": "component",
+    "description": "Define a Tera 2 component",
+    "body": [
+      "{% component ${1:name}(${2:arg}) %}",
+      "  $3",
+      "{% endcomponent ${1:name} %}"
+    ]
+  },
+  "Component Self Closing": {
+    "prefix": "comp",
+    "description": "Use a Tera 2 component (self-closing)",
+    "body": "{{<${1:name} ${2:arg}=\"${3:value}\" />}}"
+  },
+  "Component With Body": {
+    "prefix": "compbody",
+    "description": "Use a Tera 2 component with a body",
+    "body": [
+      "{% <${1:name} ${2:arg}> %}",
+      "  $3",
+      "{% </${1:name}> %}"
+    ]
+  },
+  "Set": {
+    "prefix": "set",
+    "description": "Assign a variable",
+    "body": "{% set ${1:name} = ${2:value} %}"
+  },
+  "Set Global": {
+    "prefix": "setglobal",
+    "description": "Assign a variable in the global context",
+    "body": "{% set_global ${1:name} = ${2:value} %}"
+  },
+  "Set Block": {
+    "prefix": "setblock",
+    "description": "Capture a block of output into a variable",
+    "body": [
+      "{% set ${1:name} %}",
+      "  $2",
+      "{% endset %}"
+    ]
+  },
+  "Raw": {
+    "prefix": "raw",
+    "description": "Do not render the contents",
+    "body": [
+      "{% raw %}",
+      "  $1",
+      "{% endraw %}"
+    ]
+  },
+  "Comment": {
+    "prefix": "comment",
+    "description": "Tera comment",
+    "body": "{# $1 #}"
+  },
+  "Ternary": {
+    "prefix": "ternary",
+    "description": "Tera 2 ternary expression",
+    "body": "{{ ${1:a} if ${2:cond} else ${3:b} }}"
+  },
+  "List Comprehension": {
+    "prefix": "comprehension",
+    "description": "Tera 2 list comprehension",
+    "body": "{% set ${1:out} = [${2:x} for ${2:x} in ${3:items}] %}"
+  },
+  "Break": {
+    "prefix": "break",
+    "description": "Break out of a for loop",
+    "body": "{% break %}"
+  },
+  "Continue": {
+    "prefix": "continue",
+    "description": "Skip to the next loop iteration",
+    "body": "{% continue %}"
   }
 }

@@ -1,8 +1,8 @@
 {
   "name": "tera",
   "displayName": "Tera",
-  "description": "A powerful, easy-to-use template language based on Rust, inspired by tera2 and Django Templates.",
-  "version": "0.3.0",
+  "description": "Syntax highlighting, snippets and formatting for Tera templates (Tera 2 and Tera 1), a template language for Rust inspired by Jinja2 and Django Templates.",
+  "version": "0.4.0",
   "publisher": "karunamurti",
   "author": "Karuna Murti",
   "engines": {
@@ -16,7 +16,10 @@
   ],
   "keywords": [
     "tera",
-    "rust"
+    "tera2",
+    "rust",
+    "template",
+    "jinja"
   ],
   "repository": {
     "type": "git",

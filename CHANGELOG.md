@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.4.0] - 2026-09-04
+
+- Support Tera 2 syntax, verified against the Tera 2.3.0 parser and docs
+- Highlight components: `{% component %}`/`{% endcomponent %}` definitions and both
+  usage forms, `{{<name arg="v" />}}` and `{% <name> %}`...`{% </name> %}`
+- Highlight capture blocks (`{% set x %}`...`{% endset %}`), `set_global`, `break`,
+  `continue` and `elif`
+- Highlight the Tera 2 expression syntax: optional chaining `a?.b`, spread `...`,
+  ternaries, list comprehensions, slicing, `~` concatenation and backtick strings
+- Scope the Tera 2 built-in filters, tests and functions distinctly, including the
+  renames (`escape_html`, `newlines_to_br`, `divisible_by`, `str`, `map`)
+- Highlight numbers, `True`/`False`/`None`/`null`, and the `body` component variable
+- Fix `>=` never being recognised: the operator pattern had `=>` instead
+- Fold `{% component %}` and `{% set %}` capture blocks, and tolerate whitespace-control
+  dashes in all folding markers
+- Add Tera 2 snippets; the `macro` and `import` snippets are marked Tera 1 only
+- Tera 1 tags stay highlighted, so existing templates are unaffected
+
 ## [0.3.0] - 2026-09-04
 
 - Update all dependencies to their latest compatible releases
