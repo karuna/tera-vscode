@@ -17,6 +17,13 @@ and the renamed built-in filters and tests. Tera 1 tags such as `{% macro %}` an
 
 ![Screnshot](images/screenshot.png)
 
+## Examples
+
+Sample templates live in [`examples/`](examples): [`examples/tera1`](examples/tera1)
+for Tera 1 syntax and [`examples/tera2`](examples/tera2) for Tera 2. Open any of them
+to see the highlighting. The Tera 2 examples are checked against the Tera 2 parser, so
+they double as a reference for the new syntax.
+
 ## Requirements
 
 Visual Studio Code 1.91.0 or later.

@@ -1,0 +1,25 @@
+<h1>Hello</h1>
+
+{% if my_var %}
+  {{ my_var }}
+{% else %}
+  Sorry, my_var isn't defined.
+{% endif %}
+
+{% if not show_all %}
+  See more
+{% endif %}
+
+{# A string containing delimiters is printed literally #}
+{{ "{{ hey }}" }}
+
+{# raw leaves everything inside untouched #}
+{% raw %}
+  Hello {{ name }}, this is not rendered.
+{% endraw %}
+
+{% block content %}
+{% endblock content %}
+
+{# Tera 1 used a macro here; Tera 2 uses a component #}
+{{<button label="世界" />}}

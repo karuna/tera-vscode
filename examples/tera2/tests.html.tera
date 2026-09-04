@@ -1,0 +1,27 @@
+{% if my_number + 1 is odd %}
+  Odd
+{% endif %}
+
+{# Tests always take keyword arguments in Tera 2 #}
+{% if my_number is divisible_by(divisor=3) %}Fizz{% endif %}
+{% if name is starting_with(pat="a") %}starts with a{% endif %}
+{% if name is ending_with(pat="z") %}ends with z{% endif %}
+{% if items is containing(pat=2) %}has a 2{% endif %}
+
+{# Negation with is not #}
+{% if my_var is not defined %}
+  Sorry, my_var isn't defined.
+{% endif %}
+
+{# object was renamed to map in Tera 2 #}
+{% if value is map %}a map{% endif %}
+{% if value is array %}an array{% endif %}
+{% if value is string %}a string{% endif %}
+{% if value is number %}a number{% endif %}
+{% if value is integer %}an integer{% endif %}
+{% if value is float %}a float{% endif %}
+{% if value is bool %}a bool{% endif %}
+{% if value is iterable %}iterable{% endif %}
+{% if value is none %}none{% endif %}
+{% if value is undefined %}undefined{% endif %}
+{% if value is even %}even{% endif %}

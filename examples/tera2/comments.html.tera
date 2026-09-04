@@ -1,0 +1,6 @@
+{# A comment #}
+
+{#-
+  A multi line comment. Whitespace control works on comments too,
+  using {#- and -#}.
+-#}

@@ -1,0 +1,24 @@
+{% for product in products %}
+  {{ loop.index }}. {{ product.name }}
+{% endfor %}
+
+{% for key, value in products %}
+  {{ loop.index }}. {{ key }} = {{ value }}
+{% endfor %}
+
+{% for product in products | reverse %}
+  {{ loop.index }}. {{ product.name }}
+{% endfor %}
+
+{# break and continue #}
+{% for n in numbers %}
+  {% if n == 3 %}{% continue %}{% endif %}
+  {% if n > 8 %}{% break %}{% endif %}
+  {{ loop.index }}: {{ n }}
+{% endfor %}
+
+{% for n in range(end=5) %}
+  {{ n }}
+{% else %}
+  No items.
+{% endfor %}

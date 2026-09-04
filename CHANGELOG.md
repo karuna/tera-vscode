@@ -17,6 +17,10 @@
   dashes in all folding markers
 - Add Tera 2 snippets; the `macro` and `import` snippets are marked Tera 1 only
 - Tera 1 tags stay highlighted, so existing templates are unaffected
+- Match Tera 2's actual numeric literals: plain integers and floats only, since
+  Tera has no underscore separators, exponents, hex, octal or binary literals
+- Split `examples/` into `examples/tera1` and `examples/tera2`; every Tera 2
+  example is verified to parse with the Tera 2.3.0 parser
 
 ## [0.3.0] - 2026-09-04
 
