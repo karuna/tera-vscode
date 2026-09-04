@@ -10,6 +10,8 @@
 - Add the missing `language-configuration-latex.json` referenced by the `tera-latex` language
 - Add an ESLint flat config so `lint` runs, and repair the broken build/lint scripts
 - Switch the package manager to pnpm
+- Fix the bundled output crashing on activation: 17 unresolved requires from
+  vscode-html-languageservice, and an undefined `import.meta.url` in Prettier
 
 ## [0.2.0] - 2025-04-12
 

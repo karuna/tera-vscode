@@ -11,5 +11,6 @@ pnpm-lock.yaml
 pnpm-workspace.yaml
 examples/**
 src/**
+build/**
 **/*.map
 CONTRIBUTING.md
