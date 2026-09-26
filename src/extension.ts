@@ -10,6 +10,7 @@ import { LanguageClientOptions } from 'vscode-languageclient';
 import { LanguageClient, ServerOptions, TransportKind } from 'vscode-languageclient/node';
 import { getCSSVirtualContent, isInsideStyleRegion } from './embeddedSupport';
 import { TerraPrettierFormatter } from './teraPrettier';
+import { TeraAutoDetector } from './teraAutoDetect';
 
 let client: LanguageClient;
 
@@ -48,6 +49,12 @@ export function activate(context: ExtensionContext) {
 		languages.registerDocumentFormattingEditProvider('tera-html', formatter),
 		languages.registerDocumentRangeFormattingEditProvider('tera-html', formatter)
 	);
+
+	const autoDetector = new TeraAutoDetector(context);
+	context.subscriptions.push(
+		workspace.onDidOpenTextDocument(document => autoDetector.handleDocument(document))
+	);
+	autoDetector.refreshOpenDocuments();
 
 	const clientOptions: LanguageClientOptions = {
 		documentSelector: [{ scheme: 'file', language: 'tera-html' }],
