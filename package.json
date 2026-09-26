@@ -654,6 +654,16 @@
         },
         "editor.defaultFormatter": "vscode.html-language-features"
       }
+    },
+    "configuration": {
+      "title": "Tera",
+      "properties": {
+        "tera.autoDetect": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically switch .html files to Tera HTML when the nearest Cargo.toml depends on tera."
+        }
+      }
     }
   },
   "capabilities": {
@@ -675,7 +685,9 @@
   },
   "activationEvents": [
     "onLanguage:tera-html",
-    "onLanguage:tera"
+    "onLanguage:tera",
+    "onLanguage:html",
+    "workspaceContains:**/Cargo.toml"
   ],
   "dependencies": {
     "prettier": "^3.9.6",

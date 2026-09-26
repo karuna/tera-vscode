@@ -17,6 +17,8 @@ and the renamed built-in filters and tests. Tera 1 tags such as `{% macro %}` an
 
 ![Screnshot](images/screenshot.png)
 
+`.html` files in a Rust project are auto-switched to Tera HTML when the nearest `Cargo.toml` depends on `tera`. Disable with `"tera.autoDetect": false`.
+
 ## Examples
 
 Sample templates live in [`examples/`](examples): [`examples/tera1`](examples/tera1)
